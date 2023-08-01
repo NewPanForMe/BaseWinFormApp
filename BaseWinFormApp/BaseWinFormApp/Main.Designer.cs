@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件遍历ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.时间操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.计时器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.PDM处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +79,7 @@
             // 计时器ToolStripMenuItem
             // 
             this.计时器ToolStripMenuItem.Name = "计时器ToolStripMenuItem";
-            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.计时器ToolStripMenuItem.Text = "计时器";
             this.计时器ToolStripMenuItem.Click += new System.EventHandler(this.计时器ToolStripMenuItem_Click);
             // 
@@ -89,6 +90,13 @@
             this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
             this.sQLToolStripMenuItem.Size = new System.Drawing.Size(43, 21);
             this.sQLToolStripMenuItem.Text = "SQL";
+            // 
+            // PDM处理ToolStripMenuItem
+            // 
+            this.PDM处理ToolStripMenuItem.Name = "PDM处理ToolStripMenuItem";
+            this.PDM处理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.PDM处理ToolStripMenuItem.Text = "PDM处理";
+            this.PDM处理ToolStripMenuItem.Click += new System.EventHandler(this.PDM处理ToolStripMenuItem_Click);
             // 
             // toolStripContainer1
             // 
@@ -102,13 +110,6 @@
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
-            // pDM处理ToolStripMenuItem
-            // 
-            this.PDM处理ToolStripMenuItem.Name = "PDM处理ToolStripMenuItem";
-            this.PDM处理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.PDM处理ToolStripMenuItem.Text = "PDM处理";
-            this.PDM处理ToolStripMenuItem.Click += new System.EventHandler(this.PDM处理ToolStripMenuItem_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -116,6 +117,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "工具";

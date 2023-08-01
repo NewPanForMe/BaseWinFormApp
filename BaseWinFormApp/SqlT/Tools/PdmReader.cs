@@ -9,7 +9,7 @@ namespace SqlT.Tools
         public static Pdm Pdm { get; set; }
 
 
-        public static Pdm Reads(string path)
+        public static void Reads(string path)
         {
             var pdm = new Pdm();
             var allTableAttributes = new List<TableAttributes>();
@@ -34,7 +34,7 @@ namespace SqlT.Tools
             }
             pdm.ListAttributesList = allTableAttributes;
             pdm.ListTableData = allTables;
-            return pdm;
+            Pdm = pdm;
         }
 
         /// <summary>
@@ -109,11 +109,11 @@ namespace SqlT.Tools
             }
             TableData tableData = new TableData
             {
-                TableCode = keyValuePairs.Single(x => x.Key == "a:Code").Value,
-                TableComment = keyValuePairs.Single(x => x.Key == "a:Comment").Value,
-                TableId = keyValuePairs.Single(x => x.Key == "a:ObjectID").Value,
-                TableName = keyValuePairs.Single(x => x.Key == "a:Name").Value,
-                TablePrimaryKey = keyValuePairs.Single(x => x.Key == "c:PrimaryKey").Value
+                TableCode = keyValuePairs.SingleOrDefault(x => x.Key == "a:Code").Value,
+                TableComment = keyValuePairs.SingleOrDefault(x => x.Key == "a:Comment").Value,
+                TableId = keyValuePairs.SingleOrDefault(x => x.Key == "a:ObjectID").Value,
+                TableName = keyValuePairs.SingleOrDefault(x => x.Key == "a:Name").Value,
+                TablePrimaryKey = keyValuePairs.SingleOrDefault(x => x.Key == "c:PrimaryKey").Value
             };
             return tableData;
         }
@@ -178,14 +178,14 @@ namespace SqlT.Tools
                 TableAttributes tableAttribute = new TableAttributes
                 {
                     Id = id,
-                    ObjectId = keyValuePairs.Single(x => x.Key == "a:ObjectID").Value,
-                    AttributeName = keyValuePairs.Single(x => x.Key == "a:Name").Value,
-                    AttributeCode = keyValuePairs.Single(x => x.Key == "a:Code").Value,
-                    AttributeComment = keyValuePairs.Single(x => x.Key == "a:Comment").Value,
-                    AttributeDataType = keyValuePairs.Single(x => x.Key == "a:DataType").Value,
-                    AttributeDataLength = keyValuePairs.Single(x => x.Key == "a:DataLength").Value,
-                    AttributeMandatory = keyValuePairs.Single(x => x.Key == "a:Column.Mandatory").Value,
-                    AttributeIdentity = keyValuePairs.Single(x => x.Key == "a:Identity").Value,
+                    ObjectId = keyValuePairs.SingleOrDefault(x => x.Key == "a:ObjectID").Value,
+                    AttributeName = keyValuePairs.SingleOrDefault(x => x.Key == "a:Name").Value,
+                    AttributeCode = keyValuePairs.SingleOrDefault(x => x.Key == "a:Code").Value,
+                    AttributeComment = keyValuePairs.SingleOrDefault(x => x.Key == "a:Comment").Value,
+                    AttributeDataType = keyValuePairs.SingleOrDefault(x => x.Key == "a:DataType").Value,
+                    AttributeDataLength = keyValuePairs.SingleOrDefault(x => x.Key == "a:DataLength").Value,
+                    AttributeMandatory = keyValuePairs.SingleOrDefault(x => x.Key == "a:Column.Mandatory").Value,
+                    AttributeIdentity = keyValuePairs.SingleOrDefault(x => x.Key == "a:Identity").Value,
                     TableId = tableId
                 };
                 attributes.Add(tableAttribute);
@@ -194,12 +194,12 @@ namespace SqlT.Tools
         }
     }
 
-    public class Pdm
+    public record Pdm
     {
         public List<TableData> ListTableData { get; set; }
         public List<TableAttributes> ListAttributesList { get; set; }
     }
-    public class TableData
+    public record TableData
     {
         public string TableId { get; set; }//表标记，用于与xml解析数据对应
         public string TableName { get; set; }//表名？数据库注释
@@ -207,7 +207,7 @@ namespace SqlT.Tools
         public string TableComment { get; set; }//数据库注释
         public string TablePrimaryKey { get; set; }//表主键
     }
-    public class TableAttributes
+    public record TableAttributes
     {
         /// <summary>
         /// 字段名？数据库注释

@@ -133,6 +133,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ico\setting1.ico" />
     <Content Include="ILMergeOrder.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +150,7 @@
       <Name>TimerT</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

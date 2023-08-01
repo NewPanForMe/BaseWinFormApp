@@ -62,5 +62,10 @@ namespace BaseWinFormApp
             AddToolStrip(form);
             form.Show();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
