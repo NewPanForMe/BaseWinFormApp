@@ -1,16 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace FileUploadApp.Forms.TimeT
+namespace TimerT
 {
-    public partial class FormTime : System.Windows.Forms.Form
+    public partial class FormTime : Form
     {
         private int currentTime = 0;
         public FormTime()
         {
             InitializeComponent();
-            this.timeLabel.Text= currentTime.ToString();
-            timeLabel.TextAlign= System.Drawing.ContentAlignment.MiddleCenter;
+            this.timeLabel.Text = currentTime.ToString();
+            timeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             timer1.Interval = 1000;
         }
 
@@ -36,5 +43,6 @@ namespace FileUploadApp.Forms.TimeT
             currentTime = 0;
             timeLabel.Text = currentTime.ToString();
         }
+
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using FileUploadApp.Form.FileT;
-using FileUploadApp.Forms.TimeT;
+using FileT;
+using SqlT;
+using TimerT;
 
-namespace FileUploadApp.Forms
+namespace BaseWinFormApp
 {
     public partial class Main : System.Windows.Forms.Form
     {
@@ -12,9 +13,23 @@ namespace FileUploadApp.Forms
             InitializeComponent();
         }
 
+        #region MyRegion
+
+        private void AddToolStrip(System.Windows.Forms.Form form)
+        {
+            ClearToolStrip();
+            this.toolStripContainer1.ContentPanel.Controls.Add(form);
+        }
+        private void ClearToolStrip()
+        {
+            this.toolStripContainer1.ContentPanel.Controls.Clear();
+        }
+
+        #endregion
+
         private void 文件遍历ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new Form1
+            var form = new FileForeach()
             {
                 TopLevel = false,
                 Dock = DockStyle.Fill,
@@ -36,17 +51,16 @@ namespace FileUploadApp.Forms
             form.Show();
         }
 
-
-
-        private void AddToolStrip(System.Windows.Forms.Form form)
+        private void PDM处理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClearToolStrip();
-            this.toolStripContainer1.ContentPanel.Controls.Add(form);
+            var form = new FormPdm()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            AddToolStrip(form);
+            form.Show();
         }
-        private void ClearToolStrip()
-        {
-            this.toolStripContainer1.ContentPanel.Controls.Clear();
-        }
-
     }
 }

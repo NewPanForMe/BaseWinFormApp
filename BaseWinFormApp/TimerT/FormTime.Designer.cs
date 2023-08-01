@@ -1,4 +1,4 @@
-﻿namespace FileUploadApp.Forms.TimeT
+﻿namespace TimerT
 {
     partial class FormTime
     {

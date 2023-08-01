@@ -1,4 +1,4 @@
-﻿namespace FileUploadApp.Forms
+﻿namespace BaseWinFormApp
 {
     partial class Main
     {
@@ -31,9 +31,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件遍历ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.时间操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.计时器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.PDM处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +44,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件操作ToolStripMenuItem,
-            this.时间操作ToolStripMenuItem});
+            this.时间操作ToolStripMenuItem,
+            this.sQLToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 25);
@@ -54,8 +57,8 @@
             this.文件操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件遍历ToolStripMenuItem});
             this.文件操作ToolStripMenuItem.Name = "文件操作ToolStripMenuItem";
-            this.文件操作ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.文件操作ToolStripMenuItem.Text = "文件操作";
+            this.文件操作ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文件操作ToolStripMenuItem.Text = "文件";
             // 
             // 文件遍历ToolStripMenuItem
             // 
@@ -63,6 +66,29 @@
             this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.文件遍历ToolStripMenuItem.Text = "文件遍历";
             this.文件遍历ToolStripMenuItem.Click += new System.EventHandler(this.文件遍历ToolStripMenuItem_Click);
+            // 
+            // 时间操作ToolStripMenuItem
+            // 
+            this.时间操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.计时器ToolStripMenuItem});
+            this.时间操作ToolStripMenuItem.Name = "时间操作ToolStripMenuItem";
+            this.时间操作ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.时间操作ToolStripMenuItem.Text = "时间";
+            // 
+            // 计时器ToolStripMenuItem
+            // 
+            this.计时器ToolStripMenuItem.Name = "计时器ToolStripMenuItem";
+            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.计时器ToolStripMenuItem.Text = "计时器";
+            this.计时器ToolStripMenuItem.Click += new System.EventHandler(this.计时器ToolStripMenuItem_Click);
+            // 
+            // sQLToolStripMenuItem
+            // 
+            this.sQLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PDM处理ToolStripMenuItem});
+            this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
+            this.sQLToolStripMenuItem.Size = new System.Drawing.Size(43, 21);
+            this.sQLToolStripMenuItem.Text = "SQL";
             // 
             // toolStripContainer1
             // 
@@ -76,20 +102,12 @@
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
-            // 时间操作ToolStripMenuItem
+            // pDM处理ToolStripMenuItem
             // 
-            this.时间操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.计时器ToolStripMenuItem});
-            this.时间操作ToolStripMenuItem.Name = "时间操作ToolStripMenuItem";
-            this.时间操作ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.时间操作ToolStripMenuItem.Text = "时间操作";
-            // 
-            // 计时器ToolStripMenuItem
-            // 
-            this.计时器ToolStripMenuItem.Name = "计时器ToolStripMenuItem";
-            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.计时器ToolStripMenuItem.Text = "计时器";
-            this.计时器ToolStripMenuItem.Click += new System.EventHandler(this.计时器ToolStripMenuItem_Click);
+            this.PDM处理ToolStripMenuItem.Name = "PDM处理ToolStripMenuItem";
+            this.PDM处理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.PDM处理ToolStripMenuItem.Text = "PDM处理";
+            this.PDM处理ToolStripMenuItem.Click += new System.EventHandler(this.PDM处理ToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -118,5 +136,7 @@
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.ToolStripMenuItem 时间操作ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 计时器ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sQLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PDM处理ToolStripMenuItem;
     }
 }

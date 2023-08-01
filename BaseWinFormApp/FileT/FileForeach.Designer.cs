@@ -1,7 +1,6 @@
-﻿
-namespace FileUploadApp.Form.FileT
+﻿namespace FileT
 {
-    partial class Form1
+    partial class FileForeach
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -40,7 +39,7 @@ namespace FileUploadApp.Form.FileT
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(9, 10);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 41);
             this.button1.TabIndex = 0;
@@ -61,7 +60,7 @@ namespace FileUploadApp.Form.FileT
             // fileNameText
             // 
             this.fileNameText.Location = new System.Drawing.Point(219, 10);
-            this.fileNameText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fileNameText.Margin = new System.Windows.Forms.Padding(2);
             this.fileNameText.Multiline = true;
             this.fileNameText.Name = "fileNameText";
             this.fileNameText.Size = new System.Drawing.Size(346, 42);
@@ -70,7 +69,7 @@ namespace FileUploadApp.Form.FileT
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(472, 56);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 38);
             this.button2.TabIndex = 5;
@@ -81,7 +80,7 @@ namespace FileUploadApp.Form.FileT
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(472, 99);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 36);
             this.button3.TabIndex = 6;
@@ -92,13 +91,13 @@ namespace FileUploadApp.Form.FileT
             // richTextBox
             // 
             this.richTextBox.Location = new System.Drawing.Point(9, 55);
-            this.richTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.Size = new System.Drawing.Size(450, 296);
             this.richTextBox.TabIndex = 7;
             this.richTextBox.Text = "";
             // 
-            // Form1
+            // FileForeach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,8 +108,8 @@ namespace FileUploadApp.Form.FileT
             this.Controls.Add(this.fileNameText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FileForeach";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,4 +126,3 @@ namespace FileUploadApp.Form.FileT
         private System.Windows.Forms.RichTextBox richTextBox;
     }
 }
-

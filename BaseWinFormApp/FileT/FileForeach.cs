@@ -1,15 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FileUploadApp.Form.FileT
+namespace FileT
 {
-    public partial class Form1 : System.Windows.Forms.Form
-    {
-        private string dirname = "";
-        private int count = 1;
 
-        public Form1()
+    public partial class FileForeach : System.Windows.Forms.Form
+    {
+        private string _dirName = "";
+        private int _count = 1;
+
+        public FileForeach()
         {
             InitializeComponent();
             richTextBox.ReadOnly = true;
@@ -20,7 +28,7 @@ namespace FileUploadApp.Form.FileT
             Clear();
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             string path = "";
-            folderBrowserDialog.Description = "请选择文件夹";
+            folderBrowserDialog.Description = @"请选择文件夹";
             folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;//将选择页面控制在桌面
             folderBrowserDialog.ShowNewFolderButton = false;//设置是否展示新建文件俺家
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
@@ -35,7 +43,7 @@ namespace FileUploadApp.Form.FileT
 
         private void GetDic(string path)
         {
-        
+
             try
             {
                 if (!string.IsNullOrEmpty(path))
@@ -46,8 +54,8 @@ namespace FileUploadApp.Form.FileT
                     Write(fileSystemInfo);
                     ReadAndWrite(dicInfos);
                 }
-                count = 1;
-                dirname = "";
+                _count = 1;
+                _dirName = "";
             }
             catch (Exception e)
             {
@@ -62,19 +70,19 @@ namespace FileUploadApp.Form.FileT
         {
             foreach (var item in fileSystemInfo)
             {
-                richTextBox.Text += count + @"、" + dirname + @"/" + item.Name + @"\r\n";
-                count++;
+                richTextBox.Text += _count + @"、" + _dirName + @"/" + item.Name + @"\r\n";
+                _count++;
             }
         }
         private void ReadAndWrite(DirectoryInfo[] dicInfos)
         {
             foreach (DirectoryInfo dd in dicInfos)
             {
-                    if (!string.IsNullOrEmpty(dirname)) dirname += "/" + dd.Name;
-                    else dirname += dd.Name;
-                    FileInfo[] fileSystemInfo = dd.GetFiles();
-                    Write(fileSystemInfo);
-                    ReadAndWrite(dd.GetDirectories());
+                if (!string.IsNullOrEmpty(_dirName)) _dirName += "/" + dd.Name;
+                else _dirName += dd.Name;
+                FileInfo[] fileSystemInfo = dd.GetFiles();
+                Write(fileSystemInfo);
+                ReadAndWrite(dd.GetDirectories());
             }
         }
 
@@ -95,11 +103,12 @@ namespace FileUploadApp.Form.FileT
         {
             this.richTextBox.Text = "";
             fileNameText.Text = "";
-            count = 1;
-            dirname = "";
+            _count = 1;
+            _dirName = "";
         }
 
-
     }
+
+
 
 }
