@@ -36,7 +36,6 @@ namespace SqlT.Tools
             pdm.ListTableData = allTables;
             Pdm = pdm;
         }
-
         /// <summary>
         /// 读取表结构
         /// </summary>
