@@ -11,6 +11,8 @@ namespace BaseWinFormApp
         public Main()
         {
             InitializeComponent();
+            MaximizeBox=false;
+            FormBorderStyle=FormBorderStyle.FixedSingle;
         }
 
         #region MyRegion

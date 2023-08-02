@@ -11,9 +11,8 @@ namespace SqlT.Tools
 
         public static void Reads(string path)
         {
-            var pdm = new Pdm();
-            var allTableAttributes = new List<TableAttributes>();
-            var allTables = new List<TableData>();
+           // var allTableAttributes = new List<TableAttributes>();
+            //var allTables = new List<TableData>();
             var xml = new XmlDocument();
             var xmlNamespaceManager = new XmlNamespaceManager(xml.NameTable);
             xmlNamespaceManager.AddNamespace("a", "attribute");
@@ -22,20 +21,26 @@ namespace SqlT.Tools
             xml.Load(path);
 
             var xmlNode = xml.SelectSingleNode("//c:Tables", xmlNamespaceManager);
-            if (xmlNode != null)
-            {
-                var xmlNodeList = xmlNode.ChildNodes;
-                foreach (XmlNode item in xmlNodeList)
-                {
-                    var readTable = ReadTable(item, out var allTableAttribute);
-                    allTables.Add(readTable);
-                    allTableAttributes.AddRange(allTableAttribute);
-                }
-            }
-            pdm.ListAttributesList = allTableAttributes;
-            pdm.ListTableData = allTables;
-            Pdm = pdm;
+            var xmlNodeRefer = xml.SelectSingleNode("//c:References", xmlNamespaceManager);
+            Pdm = XmlToJson.ToJson(xmlNode, xmlNodeRefer);
         }
+
+        //if (xmlNode != null)
+        //{
+        //    var xmlNodeList = xmlNode.ChildNodes;
+        //    foreach (XmlNode item in xmlNodeList)
+        //    {
+        //        var readTable = ReadTable(item, out var allTableAttribute);
+        //        allTables.Add(readTable);
+        //        allTableAttributes.AddRange(allTableAttribute);
+        //    }
+        //}
+        //pdm.ListAttributesList = allTableAttributes;
+        //pdm.ListTableData = allTables;
+        //Pdm = pdm;
+
+
+
         /// <summary>
         /// 读取表结构
         /// </summary>
@@ -193,66 +198,5 @@ namespace SqlT.Tools
         }
     }
 
-    public record Pdm
-    {
-        public List<TableData> ListTableData { get; set; }
-        public List<TableAttributes> ListAttributesList { get; set; }
-    }
-    public record TableData
-    {
-        public string TableId { get; set; }//表标记，用于与xml解析数据对应
-        public string TableName { get; set; }//表名？数据库注释
-        public string TableCode { get; set; }//表名
-        public string TableComment { get; set; }//数据库注释
-        public string TablePrimaryKey { get; set; }//表主键
-    }
-    public record TableAttributes
-    {
-        /// <summary>
-        /// 字段名？数据库注释
-        /// </summary>
-        public string Id { get; set; }
-        /// <summary>
-        /// 字段名？数据库注释
-        /// </summary>
-        public string ObjectId { get; set; }
-        /// <summary>
-        /// 与table表关联字段
-        /// </summary>
-        public string TableId { get; set; }
-        /// <summary>
-        /// 字段名？数据库注释
-        /// </summary>
-        public string AttributeName { get; set; }
-        /// <summary>
-        /// 字段名
-        /// </summary>
-        public string AttributeCode { get; set; }
-        /// <summary>
-        /// /数据库注释
-        /// </summary>
-        public string AttributeComment { get; set; }
-        /// <summary>
-        /// /数据类型
-        /// </summary>
-        public string AttributeDataType { get; set; }
-        /// <summary>
-        /// 数据长度
-        /// </summary>
-        public string AttributeDataLength { get; set; }
-        /// <summary>
-        /// 主键ID
-        /// </summary>
-        public string AttributePrimaryKey { get; set; }
-        /// <summary>
-        /// 是否为空
-        /// </summary>
-        public string AttributeMandatory { get; set; }
-        /// <summary>
-        /// 是否自增
-        /// </summary>
-        public string AttributeIdentity { get; set; }
 
-
-    }
 }
