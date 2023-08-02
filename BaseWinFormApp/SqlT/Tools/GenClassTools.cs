@@ -50,11 +50,11 @@ public class GenClassTools
                 columnSql += "/// </summary>  \r\n ";
                 columnSql += $@"  public  {colUmnDataType} {columnCode} " + "  { get; set; }   \r\n";
             });
-            readAllText = readAllText.Replace("{命名空间}", nameSpace);
-            readAllText = readAllText.Replace("{字段}", columnSql);
-            readAllText = readAllText.Replace("{表名}", tableCode);
+           var  content = readAllText.Replace("{命名空间}", nameSpace);
+           content = content.Replace("{字段}", columnSql);
+           content = content.Replace("{表名}", tableCode);
             var dir = Path.Combine(filePath, $"{tableCode}.cs");
-            File.WriteAllText(dir, readAllText);
+            File.WriteAllText(dir, content);
         });
     }
 }
