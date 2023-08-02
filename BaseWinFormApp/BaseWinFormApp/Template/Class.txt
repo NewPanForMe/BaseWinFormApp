@@ -1,0 +1,6 @@
+namespace {命名空间};
+
+public record {表名}
+{
+    {字段}
+}

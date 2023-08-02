@@ -70,6 +70,7 @@
       <DependentUpon>FormPdm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\GenClassTools.cs" />
     <Compile Include="Tools\PdmClass.cs" />
     <Compile Include="Tools\PdmReader.cs" />
     <Compile Include="Tools\SqlTools.cs" />
@@ -84,5 +85,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

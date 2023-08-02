@@ -55,10 +55,10 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>C232A4271AF078599E068EBB161B7573881BB259</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B41B07420160CC285C64CCC376ED8F533C6C7E6C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>BaseWinFormApp_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>BaseWinFormApp_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -129,7 +129,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="BaseWinFormApp_1_TemporaryKey.pfx" />
+    <None Include="BaseWinFormApp_2_TemporaryKey.pfx" />
     <None Include="ILMerge.props" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -160,6 +160,9 @@
   <ItemGroup>
     <Content Include="ico\setting1.ico" />
     <Content Include="ILMergeOrder.txt" />
+    <Content Include="Template\Class.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FileT\FileT.csproj">

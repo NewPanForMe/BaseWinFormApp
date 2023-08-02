@@ -15,6 +15,7 @@ namespace SqlT
     public partial class FormPdm : Form
     {
         private string _pdmPath = string.Empty;
+        private string _tempPath = string.Empty;
 
         public FormPdm()
         {
@@ -24,6 +25,7 @@ namespace SqlT
             sqlTypeComb.Items.Add("PostgreSQL");
             sqlTypeComb.Items.Add("MySQL");
             this.pdmResRichBx.ReadOnly = true;
+            genClassPath.ReadOnly = true;
         }
 
         private void selectPdmBtn_Click(object sender, EventArgs e)
@@ -77,6 +79,7 @@ namespace SqlT
                     break;
             }
 
+            Console.WriteLine(pdm.TableJsonString);
 
             this.pdmResRichBx.Text = string.Empty;
             this.pdmResRichBx.Text = generateSqlServer;
@@ -91,6 +94,33 @@ namespace SqlT
             }
             this.pdmResRichBx.SelectAll();
             Clipboard.SetText(this.pdmResRichBx.Text);
+        }
+
+        private void genClass_Click(object sender, EventArgs e)
+        {
+            var pdm = PdmReaders.Pdm;
+            if (string.IsNullOrEmpty(_tempPath))
+            {
+                MessageBox.Show(@"请选择类存放文件夹");
+                return;
+            }
+            if (string.IsNullOrEmpty(nameSpaceTbx.Text))
+            {
+                MessageBox.Show(@"请输入命名空间");
+                return;
+            }
+            GenClassTools.Generate(pdm,nameSpaceTbx.Text, _tempPath);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var dialog = new FolderBrowserDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                genClassPath.Text = dialog.SelectedPath;
+                _tempPath = dialog.SelectedPath;
+            }
+
         }
     }
 }
