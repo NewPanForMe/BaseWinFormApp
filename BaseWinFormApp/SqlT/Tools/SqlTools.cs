@@ -8,11 +8,11 @@ public class SqlTools
 {
 
     private static readonly  string SqlServerCreateTable =
-        " \r\n   create table {表名} \r\n(\r\n {字段}  \r\n  constraint PK_{表名大写} primary key nonclustered ({主键}) \r\n)";
+        "\r\ncreate table {表名} \r\n(\r\n {字段}  \r\n  constraint PK_{表名大写} primary key nonclustered ({主键}) \r\n)";
     private static readonly string PgSqlCreateTable =
-        " \r\n    create table {表名}\r\n(\r\n {字段}   \r\n    constraint PK_{表名大写} primary key ({主键})     \r\n);";
+        "\r\ncreate table {表名}\r\n(\r\n {字段}   \r\n    constraint PK_{表名大写} primary key ({主键})     \r\n);";
     private static readonly string MySqlCreateTable =
-        " \r\n   create table {表名}\r\n(\r\n   {字段} \r\n    primary key ({主键})    \r\n);";
+        "\r\ncreate table {表名}\r\n(\r\n   {字段} \r\n    primary key ({主键})    \r\n);";
 
     /// <summary>
     /// 生成Mysql

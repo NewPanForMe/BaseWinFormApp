@@ -30,9 +30,11 @@ namespace TimerT
                 _currentMin++;
                 if (_currentMin == 60)
                 {
+                    _currentMin = 0;
                     _currentHour++;
                     if (_currentHour == 23)
                     {
+                        _currentHour = 0;
                         _currentDay++;
                     }
                 }

@@ -16,6 +16,7 @@ namespace FileT
     {
         private string _dirName = "";
         private int _count = 1;
+        private string _path = "";
 
         public FileForeach()
         {
@@ -27,18 +28,17 @@ namespace FileT
         {
             Clear();
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            string path = "";
             folderBrowserDialog.Description = @"请选择文件夹";
             folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;//将选择页面控制在桌面
             folderBrowserDialog.ShowNewFolderButton = false;//设置是否展示新建文件俺家
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                path = folderBrowserDialog.SelectedPath;
+                _path = folderBrowserDialog.SelectedPath;
             }
-            fileNameText.Text = path;
+            fileNameText.Text = _path;
             fileNameText.ReadOnly = true;
             this.richTextBox.Text = "";
-            GetDic(path);
+            GetDic(_path);
         }
 
         private void GetDic(string path)
@@ -46,6 +46,7 @@ namespace FileT
 
             try
             {
+                Console.WriteLine(path);
                 if (!string.IsNullOrEmpty(path))
                 {
                     DirectoryInfo dir = new DirectoryInfo(path);
@@ -70,7 +71,7 @@ namespace FileT
         {
             foreach (var item in fileSystemInfo)
             {
-                richTextBox.Text += _count + @"、" + _dirName + @"/" + item.Name + @"\r\n";
+                richTextBox.Text += $@"{_count},{_path}\{_dirName}\{item.Name}" + "\r\n";
                 _count++;
             }
         }
@@ -78,7 +79,7 @@ namespace FileT
         {
             foreach (DirectoryInfo dd in dicInfos)
             {
-                if (!string.IsNullOrEmpty(_dirName)) _dirName += "/" + dd.Name;
+                if (!string.IsNullOrEmpty(_dirName)) _dirName += "\\" + dd.Name;
                 else _dirName += dd.Name;
                 FileInfo[] fileSystemInfo = dd.GetFiles();
                 Write(fileSystemInfo);

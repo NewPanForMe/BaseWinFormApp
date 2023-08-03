@@ -58,12 +58,14 @@
             this.文件操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件遍历ToolStripMenuItem});
             this.文件操作ToolStripMenuItem.Name = "文件操作ToolStripMenuItem";
+            this.文件操作ToolStripMenuItem.ShortcutKeyDisplayString = "F";
             this.文件操作ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.文件操作ToolStripMenuItem.Text = "文件";
             // 
             // 文件遍历ToolStripMenuItem
             // 
             this.文件遍历ToolStripMenuItem.Name = "文件遍历ToolStripMenuItem";
+            this.文件遍历ToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.文件遍历ToolStripMenuItem.Text = "文件遍历";
             this.文件遍历ToolStripMenuItem.Click += new System.EventHandler(this.文件遍历ToolStripMenuItem_Click);
@@ -73,13 +75,15 @@
             this.时间操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.计时器ToolStripMenuItem});
             this.时间操作ToolStripMenuItem.Name = "时间操作ToolStripMenuItem";
+            this.时间操作ToolStripMenuItem.ShortcutKeyDisplayString = "T";
             this.时间操作ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.时间操作ToolStripMenuItem.Text = "时间";
             // 
             // 计时器ToolStripMenuItem
             // 
             this.计时器ToolStripMenuItem.Name = "计时器ToolStripMenuItem";
-            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.计时器ToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.计时器ToolStripMenuItem.Text = "计时器";
             this.计时器ToolStripMenuItem.Click += new System.EventHandler(this.计时器ToolStripMenuItem_Click);
             // 
@@ -88,12 +92,14 @@
             this.sQLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.PDM处理ToolStripMenuItem});
             this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
+            this.sQLToolStripMenuItem.ShortcutKeyDisplayString = "S";
             this.sQLToolStripMenuItem.Size = new System.Drawing.Size(43, 21);
             this.sQLToolStripMenuItem.Text = "SQL";
             // 
             // PDM处理ToolStripMenuItem
             // 
             this.PDM处理ToolStripMenuItem.Name = "PDM处理ToolStripMenuItem";
+            this.PDM处理ToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.PDM处理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.PDM处理ToolStripMenuItem.Text = "PDM处理";
             this.PDM处理ToolStripMenuItem.Click += new System.EventHandler(this.PDM处理ToolStripMenuItem_Click);

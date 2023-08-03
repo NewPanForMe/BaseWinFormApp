@@ -41,7 +41,7 @@
             this.button1.Location = new System.Drawing.Point(9, 10);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 41);
+            this.button1.Size = new System.Drawing.Size(193, 41);
             this.button1.TabIndex = 0;
             this.button1.Text = "选择文件夹";
             this.button1.UseVisualStyleBackColor = true;
@@ -50,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(130, 24);
+            this.label1.Location = new System.Drawing.Point(206, 24);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 12);
@@ -59,19 +59,19 @@
             // 
             // fileNameText
             // 
-            this.fileNameText.Location = new System.Drawing.Point(219, 10);
+            this.fileNameText.Location = new System.Drawing.Point(299, 9);
             this.fileNameText.Margin = new System.Windows.Forms.Padding(2);
             this.fileNameText.Multiline = true;
             this.fileNameText.Name = "fileNameText";
-            this.fileNameText.Size = new System.Drawing.Size(346, 42);
+            this.fileNameText.Size = new System.Drawing.Size(423, 42);
             this.fileNameText.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(472, 56);
+            this.button2.Location = new System.Drawing.Point(509, 59);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 38);
+            this.button2.Size = new System.Drawing.Size(213, 38);
             this.button2.TabIndex = 5;
             this.button2.Text = "清除数据";
             this.button2.UseVisualStyleBackColor = true;
@@ -79,10 +79,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(472, 99);
+            this.button3.Location = new System.Drawing.Point(509, 101);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 36);
+            this.button3.Size = new System.Drawing.Size(213, 36);
             this.button3.TabIndex = 6;
             this.button3.Text = "生成Guid";
             this.button3.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             this.richTextBox.Location = new System.Drawing.Point(9, 55);
             this.richTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(450, 296);
+            this.richTextBox.Size = new System.Drawing.Size(496, 410);
             this.richTextBox.TabIndex = 7;
             this.richTextBox.Text = "";
             // 
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 372);
+            this.ClientSize = new System.Drawing.Size(732, 487);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
