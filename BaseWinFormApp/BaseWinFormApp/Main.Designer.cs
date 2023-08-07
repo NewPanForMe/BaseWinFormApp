@@ -37,6 +37,8 @@
             this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PDM处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.系统当前信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +48,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件操作ToolStripMenuItem,
             this.时间操作ToolStripMenuItem,
-            this.sQLToolStripMenuItem});
+            this.sQLToolStripMenuItem,
+            this.系统ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 25);
@@ -66,7 +69,7 @@
             // 
             this.文件遍历ToolStripMenuItem.Name = "文件遍历ToolStripMenuItem";
             this.文件遍历ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.文件遍历ToolStripMenuItem.Text = "文件遍历";
             this.文件遍历ToolStripMenuItem.Click += new System.EventHandler(this.文件遍历ToolStripMenuItem_Click);
             // 
@@ -83,7 +86,7 @@
             // 
             this.计时器ToolStripMenuItem.Name = "计时器ToolStripMenuItem";
             this.计时器ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.计时器ToolStripMenuItem.Text = "计时器";
             this.计时器ToolStripMenuItem.Click += new System.EventHandler(this.计时器ToolStripMenuItem_Click);
             // 
@@ -116,6 +119,21 @@
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
+            // 系统ToolStripMenuItem
+            // 
+            this.系统ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.系统当前信息ToolStripMenuItem});
+            this.系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
+            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.系统ToolStripMenuItem.Text = "系统";
+            // 
+            // 系统当前信息ToolStripMenuItem
+            // 
+            this.系统当前信息ToolStripMenuItem.Name = "系统当前信息ToolStripMenuItem";
+            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.系统当前信息ToolStripMenuItem.Text = "系统当前信息";
+            this.系统当前信息ToolStripMenuItem.Click += new System.EventHandler(this.系统当前信息ToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -146,5 +164,7 @@
         private System.Windows.Forms.ToolStripMenuItem 计时器ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PDM处理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 系统ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 系统当前信息ToolStripMenuItem;
     }
 }

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using FileT;
 using SqlT;
+using SysT;
 using TimerT;
 
 namespace BaseWinFormApp
@@ -68,6 +69,18 @@ namespace BaseWinFormApp
         private void Main_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void 系统当前信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormSystem()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            AddToolStrip(form);
+            form.Show();
         }
     }
 }

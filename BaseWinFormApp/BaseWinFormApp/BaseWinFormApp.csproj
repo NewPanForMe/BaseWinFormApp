@@ -173,6 +173,10 @@
       <Project>{61a56a7d-caed-4387-91da-d2166bac224f}</Project>
       <Name>SqlT</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SysT\SysT.csproj">
+      <Project>{cca59d4b-34fa-4670-84a2-85ec377a2455}</Project>
+      <Name>SysT</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TimerT\TimerT.csproj">
       <Project>{1111eb8e-af0e-458f-a9f1-84f9354e5c54}</Project>
       <Name>TimerT</Name>
