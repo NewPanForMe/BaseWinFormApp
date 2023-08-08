@@ -15,18 +15,10 @@ namespace SysT
 {
     public partial class FormSystem : Form
     {
-        private Dictionary<string,string > _lDictionary = new Dictionary<string,string>();
-
-
-        /// <summary>
-        /// cpu信息
-        /// </summary>
-        private const string CpuPath = "Win32_Processor";
-
-        /// <summary>
-        /// 磁盘信息
-        /// </summary>
-        private const string DiskPath = "Win32_DiskDrive";// Win32_PhysicalMedia
+        private Dictionary<string, string> _lDictionary = new Dictionary<string, string>();
+        private const string CpuPath = "Win32_Processor";   // cpu信息
+        private const string DiskPath = "Win32_DiskPartition";//磁盘信息  Win32_DiskDrive Win32_DiskDriveToDiskPartition  Win32_DiskPartition 
+        private const string MemoryPath = "Win32_PhysicalMemory";//内存信息  
 
         public FormSystem()
         {
@@ -36,12 +28,14 @@ namespace SysT
             //tick启动
             timer1.Interval = 1000;
             timer1.Start();
+         
         }
         private void Init()
         {
             InitSystemInfo();
             GetCpu();
-            GetDisk();
+            // GetDisk();
+            GetMemory();
         }
 
         private void ReadOnly()
@@ -49,20 +43,41 @@ namespace SysT
             is64BitTb.ReadOnly = true;
             osVersionTb.ReadOnly = true;
             CPUTb.ReadOnly = true;
-            cpuCoresTb.ReadOnly= true;
+            cpuCoresTb.ReadOnly = true;
             cpuEnableCoresTb.ReadOnly = true;
+
+            leaveBattaryTb.ReadOnly = true;
+            leaveMiniuteTb.ReadOnly = true;
+            pullBattaryTb.ReadOnly = true;
+            computerNameTb.ReadOnly= true;
+            netTb.ReadOnly= true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            InitBattery();
+        }
+        /// <summary>
+        /// 电池信息
+        /// </summary>
+        private void InitBattery()
+        {
+            leaveBattaryTb.Text = SystemInformation.PowerStatus.BatteryLifePercent * 100 + @" %";
+            leaveMiniuteTb.Text = SystemInformation.PowerStatus.BatteryLifeRemaining / 60 + @" 分";
+            pullBattaryTb.Text = SystemInformation.PowerStatus.PowerLineStatus == PowerLineStatus.Offline ? "未在充电" : "充电中";
+
         }
 
 
+        /// <summary>
+        /// 加载基础信息
+        /// </summary>
         private void InitSystemInfo()
         {
             is64BitTb.Text = Environment.Is64BitOperatingSystem ? "是" : "否";
             osVersionTb.Text = RuntimeInformation.OSDescription;
-
+            computerNameTb.Text = SystemInformation.ComputerName;
+            netTb.Text = SystemInformation.Network ? "已联网" : "未联网";
         }
         /// <summary>
         /// 获得CPU信息
@@ -89,26 +104,49 @@ namespace SysT
                 }
             }
         }
-
         /// <summary>
         /// 获取磁盘信息
         /// </summary>
         private void GetDisk()
         {
-            
+
             var moc = new ManagementClass(DiskPath).GetInstances();
+            int x = 0;
             foreach (var mo in moc)
             {
+                _lDictionary.Add("分隔符=================="+x, "分隔符==================");
                 foreach (var item in mo.Properties)
                 {
-                    if (!_lDictionary.ContainsKey(item.Name))
-                    {
-                        _lDictionary.Add(item.Name, item.Value == null ? "" : item.Value.ToString());
-                    }
+                        _lDictionary.Add(item.Name+x, item.Value == null ? "" : item.Value.ToString());
+                        x++;
                 }
             }
         }
+
+
+        /// <summary>
+        /// 获取内存信息
+        /// </summary>
+        private void GetMemory()
+        {
+
+            var moc = new ManagementClass(MemoryPath).GetInstances();
+            int x = 0;
+            foreach (var mo in moc)
+            {
+                _lDictionary.Add("分隔符==================" + x, "分隔符==================");
+                foreach (var item in mo.Properties)
+                {
+                    _lDictionary.Add(item.Name + x, item.Value == null ? "" : item.Value.ToString());
+                    x++;
+                }
+            }
+        }
+
+
+
+
     }
 
- 
+
 }
