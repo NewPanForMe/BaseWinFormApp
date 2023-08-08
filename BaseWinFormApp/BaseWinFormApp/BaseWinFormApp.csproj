@@ -55,10 +55,10 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>1115643562BFD23CBB36C6AD1FF7730299BBCB96</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>853A950FC2B30CDEC6D776374B2FDEEB31C19A08</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>BaseWinFormApp_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>BaseWinFormApp_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -73,7 +73,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>BaseWinFormApp_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
