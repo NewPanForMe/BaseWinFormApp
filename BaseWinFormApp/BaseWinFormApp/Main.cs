@@ -68,10 +68,7 @@ namespace BaseWinFormApp
             form.Show();
         }
 
-        private void Main_Load(object sender, EventArgs e)
-        {
-
-        }
+  
 
         private void 系统当前信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -88,19 +85,16 @@ namespace BaseWinFormApp
         private void 关机ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int time = 10;    //单位为：秒
-            MessageBox
-                .Show($@"将在{time}s后关机");
             ProcessHelper.Shutdown(time);
-
-
+            MessageBox.Show($@"将在{DateTime.Now.AddSeconds(time):hh:mm:ss}关机");
         }
 
         private void 重启ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int time = 10;    //单位为：秒
-            MessageBox
-                .Show($@"将在{time}s后重启");
+         
             ProcessHelper.Restart(time);
+            MessageBox.Show($@"将在{DateTime.Now.AddSeconds(time):hh:mm:ss}重启");
         }
     }
 }
