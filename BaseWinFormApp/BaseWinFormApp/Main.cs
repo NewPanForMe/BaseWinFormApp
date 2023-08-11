@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using BaseWinFormApp.Tools;
 using FileT;
 using SqlT;
 using SysT;
@@ -89,7 +90,9 @@ namespace BaseWinFormApp
             int time = 10;    //单位为：秒
             MessageBox
                 .Show($@"将在{time}s后关机");
-            Process.Start("c:/windows/system32/shutdown.exe", "-s -t " + time);
+            ProcessHelper.Shutdown(time);
+
+
         }
 
         private void 重启ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,7 +100,7 @@ namespace BaseWinFormApp
             int time = 10;    //单位为：秒
             MessageBox
                 .Show($@"将在{time}s后重启");
-            Process.Start("c:/windows/system32/shutdown.exe", "-r -t " + time);
+            ProcessHelper.Restart(time);
         }
     }
 }
