@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using FileT;
 using SqlT;
@@ -81,6 +82,22 @@ namespace BaseWinFormApp
             };
             AddToolStrip(form);
             form.Show();
+        }
+
+        private void 关机ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int time = 10;    //单位为：秒
+            MessageBox
+                .Show($@"将在{time}s后关机");
+            Process.Start("c:/windows/system32/shutdown.exe", "-s -t " + time);
+        }
+
+        private void 重启ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int time = 10;    //单位为：秒
+            MessageBox
+                .Show($@"将在{time}s后重启");
+            Process.Start("c:/windows/system32/shutdown.exe", "-r -t " + time);
         }
     }
 }

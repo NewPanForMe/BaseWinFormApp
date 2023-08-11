@@ -36,9 +36,11 @@
             this.计时器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PDM处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统当前信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.关机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.重启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -103,9 +105,26 @@
             // 
             this.PDM处理ToolStripMenuItem.Name = "PDM处理ToolStripMenuItem";
             this.PDM处理ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.PDM处理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.PDM处理ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.PDM处理ToolStripMenuItem.Text = "PDM处理";
             this.PDM处理ToolStripMenuItem.Click += new System.EventHandler(this.PDM处理ToolStripMenuItem_Click);
+            // 
+            // 系统ToolStripMenuItem
+            // 
+            this.系统ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.系统当前信息ToolStripMenuItem,
+            this.关机ToolStripMenuItem,
+            this.重启ToolStripMenuItem});
+            this.系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
+            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.系统ToolStripMenuItem.Text = "系统";
+            // 
+            // 系统当前信息ToolStripMenuItem
+            // 
+            this.系统当前信息ToolStripMenuItem.Name = "系统当前信息ToolStripMenuItem";
+            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.系统当前信息ToolStripMenuItem.Text = "系统当前信息";
+            this.系统当前信息ToolStripMenuItem.Click += new System.EventHandler(this.系统当前信息ToolStripMenuItem_Click);
             // 
             // toolStripContainer1
             // 
@@ -119,20 +138,19 @@
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
-            // 系统ToolStripMenuItem
+            // 关机ToolStripMenuItem
             // 
-            this.系统ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.系统当前信息ToolStripMenuItem});
-            this.系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
-            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.系统ToolStripMenuItem.Text = "系统";
+            this.关机ToolStripMenuItem.Name = "关机ToolStripMenuItem";
+            this.关机ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.关机ToolStripMenuItem.Text = "关机";
+            this.关机ToolStripMenuItem.Click += new System.EventHandler(this.关机ToolStripMenuItem_Click);
             // 
-            // 系统当前信息ToolStripMenuItem
+            // 重启ToolStripMenuItem
             // 
-            this.系统当前信息ToolStripMenuItem.Name = "系统当前信息ToolStripMenuItem";
-            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.系统当前信息ToolStripMenuItem.Text = "系统当前信息";
-            this.系统当前信息ToolStripMenuItem.Click += new System.EventHandler(this.系统当前信息ToolStripMenuItem_Click);
+            this.重启ToolStripMenuItem.Name = "重启ToolStripMenuItem";
+            this.重启ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.重启ToolStripMenuItem.Text = "重启";
+            this.重启ToolStripMenuItem.Click += new System.EventHandler(this.重启ToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -166,5 +184,7 @@
         private System.Windows.Forms.ToolStripMenuItem PDM处理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统当前信息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 关机ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 重启ToolStripMenuItem;
     }
 }
