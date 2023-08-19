@@ -55,10 +55,10 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>853A950FC2B30CDEC6D776374B2FDEEB31C19A08</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>4A5ADAC2DB8086ACB1EF22222BA4A55394DDB14D</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>BaseWinFormApp_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>BaseWinFormApp_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -137,6 +137,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="BaseWinFormApp_1_TemporaryKey.pfx" />
     <None Include="BaseWinFormApp_TemporaryKey.pfx" />
     <None Include="ILMerge.props" />
     <None Include="packages.config" />

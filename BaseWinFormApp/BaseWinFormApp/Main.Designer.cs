@@ -38,9 +38,10 @@
             this.PDM处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统当前信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.关机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.文件读取ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +62,8 @@
             // 文件操作ToolStripMenuItem
             // 
             this.文件操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件遍历ToolStripMenuItem});
+            this.文件遍历ToolStripMenuItem,
+            this.文件读取ToolStripMenuItem});
             this.文件操作ToolStripMenuItem.Name = "文件操作ToolStripMenuItem";
             this.文件操作ToolStripMenuItem.ShortcutKeyDisplayString = "F";
             this.文件操作ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
@@ -71,7 +73,7 @@
             // 
             this.文件遍历ToolStripMenuItem.Name = "文件遍历ToolStripMenuItem";
             this.文件遍历ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.文件遍历ToolStripMenuItem.Text = "文件遍历";
             this.文件遍历ToolStripMenuItem.Click += new System.EventHandler(this.文件遍历ToolStripMenuItem_Click);
             // 
@@ -122,9 +124,23 @@
             // 系统当前信息ToolStripMenuItem
             // 
             this.系统当前信息ToolStripMenuItem.Name = "系统当前信息ToolStripMenuItem";
-            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.系统当前信息ToolStripMenuItem.Text = "系统当前信息";
             this.系统当前信息ToolStripMenuItem.Click += new System.EventHandler(this.系统当前信息ToolStripMenuItem_Click);
+            // 
+            // 关机ToolStripMenuItem
+            // 
+            this.关机ToolStripMenuItem.Name = "关机ToolStripMenuItem";
+            this.关机ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.关机ToolStripMenuItem.Text = "关机";
+            this.关机ToolStripMenuItem.Click += new System.EventHandler(this.关机ToolStripMenuItem_Click);
+            // 
+            // 重启ToolStripMenuItem
+            // 
+            this.重启ToolStripMenuItem.Name = "重启ToolStripMenuItem";
+            this.重启ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.重启ToolStripMenuItem.Text = "重启";
+            this.重启ToolStripMenuItem.Click += new System.EventHandler(this.重启ToolStripMenuItem_Click);
             // 
             // toolStripContainer1
             // 
@@ -138,19 +154,12 @@
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
-            // 关机ToolStripMenuItem
+            // 文件读取ToolStripMenuItem
             // 
-            this.关机ToolStripMenuItem.Name = "关机ToolStripMenuItem";
-            this.关机ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.关机ToolStripMenuItem.Text = "关机";
-            this.关机ToolStripMenuItem.Click += new System.EventHandler(this.关机ToolStripMenuItem_Click);
-            // 
-            // 重启ToolStripMenuItem
-            // 
-            this.重启ToolStripMenuItem.Name = "重启ToolStripMenuItem";
-            this.重启ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.重启ToolStripMenuItem.Text = "重启";
-            this.重启ToolStripMenuItem.Click += new System.EventHandler(this.重启ToolStripMenuItem_Click);
+            this.文件读取ToolStripMenuItem.Name = "文件读取ToolStripMenuItem";
+            this.文件读取ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.文件读取ToolStripMenuItem.Text = "文件读取";
+            this.文件读取ToolStripMenuItem.Click += new System.EventHandler(this.文件读取ToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -186,5 +195,6 @@
         private System.Windows.Forms.ToolStripMenuItem 系统当前信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关机ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 重启ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 文件读取ToolStripMenuItem;
     }
 }
