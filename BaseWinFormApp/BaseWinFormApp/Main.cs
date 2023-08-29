@@ -6,11 +6,17 @@ using FileT;
 using SqlT;
 using SysT;
 using TimerT;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace BaseWinFormApp
 {
     public partial class Main : System.Windows.Forms.Form
     {
+        /// <summary>
+        /// 剩余时间
+        /// </summary>
+       private const int LessTime = 10;    //单位为：秒
+
         public Main()
         {
             InitializeComponent();
@@ -82,19 +88,18 @@ namespace BaseWinFormApp
             form.Show();
         }
 
-        private void 关机ToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void shutDownBtn_Click(object sender, EventArgs e)
         {
-            int time = 10;    //单位为：秒
-            ProcessHelper.Shutdown(time);
-            MessageBox.Show($@"将在{DateTime.Now.AddSeconds(time):hh:mm:ss}关机");
+            ProcessHelper.Shutdown(LessTime);
+            MessageBox.Show($@"将在{DateTime.Now.AddSeconds(LessTime):hh:mm:ss}关机");
+
         }
 
-        private void 重启ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void rebotBtn_Click(object sender, EventArgs e)
         {
-            int time = 10;    //单位为：秒
-         
-            ProcessHelper.Restart(time);
-            MessageBox.Show($@"将在{DateTime.Now.AddSeconds(time):hh:mm:ss}重启");
+            ProcessHelper.Restart(LessTime);
+            MessageBox.Show($@"将在{DateTime.Now.AddSeconds(LessTime):hh:mm:ss}重启");
         }
     }
 }

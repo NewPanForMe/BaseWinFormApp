@@ -55,10 +55,11 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>853A950FC2B30CDEC6D776374B2FDEEB31C19A08</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>087CE9166C8932B2126E7D73C56FCC021BE155CD</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>BaseWinFormApp_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>

@@ -39,9 +39,10 @@
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统当前信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.关机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.重启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shutDownBtn = new System.Windows.Forms.Button();
+            this.rebotBtn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,9 +113,7 @@
             // 系统ToolStripMenuItem
             // 
             this.系统ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.系统当前信息ToolStripMenuItem,
-            this.关机ToolStripMenuItem,
-            this.重启ToolStripMenuItem});
+            this.系统当前信息ToolStripMenuItem});
             this.系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
             this.系统ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.系统ToolStripMenuItem.Text = "系统";
@@ -131,6 +130,8 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.rebotBtn);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.shutDownBtn);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 385);
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -138,19 +139,25 @@
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
-            // 关机ToolStripMenuItem
+            // shutDownBtn
             // 
-            this.关机ToolStripMenuItem.Name = "关机ToolStripMenuItem";
-            this.关机ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.关机ToolStripMenuItem.Text = "关机";
-            this.关机ToolStripMenuItem.Click += new System.EventHandler(this.关机ToolStripMenuItem_Click);
+            this.shutDownBtn.Location = new System.Drawing.Point(3, 3);
+            this.shutDownBtn.Name = "shutDownBtn";
+            this.shutDownBtn.Size = new System.Drawing.Size(67, 55);
+            this.shutDownBtn.TabIndex = 0;
+            this.shutDownBtn.Text = "关机";
+            this.shutDownBtn.UseVisualStyleBackColor = true;
+            this.shutDownBtn.Click += new System.EventHandler(this.shutDownBtn_Click);
             // 
-            // 重启ToolStripMenuItem
+            // rebotBtn
             // 
-            this.重启ToolStripMenuItem.Name = "重启ToolStripMenuItem";
-            this.重启ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.重启ToolStripMenuItem.Text = "重启";
-            this.重启ToolStripMenuItem.Click += new System.EventHandler(this.重启ToolStripMenuItem_Click);
+            this.rebotBtn.Location = new System.Drawing.Point(76, 3);
+            this.rebotBtn.Name = "rebotBtn";
+            this.rebotBtn.Size = new System.Drawing.Size(67, 55);
+            this.rebotBtn.TabIndex = 1;
+            this.rebotBtn.Text = "重启";
+            this.rebotBtn.UseVisualStyleBackColor = true;
+            this.rebotBtn.Click += new System.EventHandler(this.rebotBtn_Click);
             // 
             // Main
             // 
@@ -165,6 +172,7 @@
             this.Text = "工具";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
             this.ResumeLayout(false);
@@ -184,7 +192,7 @@
         private System.Windows.Forms.ToolStripMenuItem PDM处理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统当前信息ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关机ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 重启ToolStripMenuItem;
+        private System.Windows.Forms.Button rebotBtn;
+        private System.Windows.Forms.Button shutDownBtn;
     }
 }
