@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using BaseWinFormApp;
 
-namespace FileUploadApp
+namespace BaseWinFormApp
 {
     static class Program
     {
