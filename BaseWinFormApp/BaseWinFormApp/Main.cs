@@ -101,5 +101,17 @@ namespace BaseWinFormApp
             ProcessHelper.Restart(LessTime);
             MessageBox.Show($@"将在{DateTime.Now.AddSeconds(LessTime):hh:mm:ss}重启");
         }
+
+        private void 文件读取ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FileRead()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            AddToolStrip(form);
+            form.Show();
+        }
     }
 }
