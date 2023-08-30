@@ -76,6 +76,7 @@ public class XmlToJson
 
 
 
+        deserializeXmlNode = deserializeXmlNode.Replace("@", "");
         return deserializeXmlNode;
     }
 

@@ -8,7 +8,7 @@ public record O_ColumnItem
     /// <summary>
     /// 
     /// </summary>
-    public string @Id { get; set; }
+    public string  @Id { get; set; }
     /// <summary>
     /// 
     /// </summary>
@@ -72,7 +72,7 @@ public record O_Column
     /// <summary>
     /// 
     /// </summary>
-    public string @Ref { get; set; }
+    public string  @Ref { get; set; }
 }
 
 public record C_Key_Columns
@@ -88,11 +88,11 @@ public record O_Key
     /// <summary>
     /// 
     /// </summary>
-    public string @Ref { get; set; }
+    public string  Ref { get; set; }
     /// <summary>
     /// 
     /// </summary>
-    public string @Id { get; set; }
+    public string  Id { get; set; }
     /// <summary>
     /// 
     /// </summary>
@@ -150,7 +150,7 @@ public record O_TableItem
     /// <summary>
     /// 
     /// </summary>
-    public string @Id { get; set; }
+    public string Id { get; set; }
     /// <summary>
     /// 
     /// </summary>
@@ -302,7 +302,7 @@ public record O_Table
     /// <summary>
     /// 
     /// </summary>
-    public string @Ref { get; set; }
+    public string  Ref { get; set; }
 }
 
 public record C_ParentTable
@@ -355,7 +355,7 @@ public record O_ReferenceJoin
     /// <summary>
     /// 
     /// </summary>
-    public string @Id { get; set; }
+    public string  Id { get; set; }
     /// <summary>
     /// 
     /// </summary>
@@ -399,7 +399,7 @@ public record O_ReferenceItem
     /// <summary>
     /// 
     /// </summary>
-    public string @Id { get; set; }
+    public string  Id { get; set; }
     /// <summary>
     /// 
     /// </summary>

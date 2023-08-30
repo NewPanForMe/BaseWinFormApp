@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace SqlT
     public partial class FormPdm : Form
     {
         private string _pdmPath = string.Empty;
-        private string _tempPath = string.Empty;
+        private string _generateClassFilePath = string.Empty;
 
         public FormPdm()
         {
@@ -99,9 +100,9 @@ namespace SqlT
         private void genClass_Click(object sender, EventArgs e)
         {
             var pdm = PdmReaders.Pdm;
-            if (string.IsNullOrEmpty(_tempPath))
+            if (string.IsNullOrEmpty(_generateClassFilePath))
             {
-                MessageBox.Show(@"请选择类存放文件夹");
+                MessageBox.Show(@"请选择文件位置");
                 return;
             }
             if (string.IsNullOrEmpty(nameSpaceTbx.Text))
@@ -109,7 +110,8 @@ namespace SqlT
                 MessageBox.Show(@"请输入命名空间");
                 return;
             }
-            GenClassTools.Generate(pdm,nameSpaceTbx.Text, _tempPath);
+            GenClassTools.Generate(pdm,nameSpaceTbx.Text, _generateClassFilePath);
+            Process.Start(_generateClassFilePath);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -118,9 +120,8 @@ namespace SqlT
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 genClassPath.Text = dialog.SelectedPath;
-                _tempPath = dialog.SelectedPath;
+                _generateClassFilePath = dialog.SelectedPath;
             }
-
         }
     }
 }

@@ -8,11 +8,8 @@ namespace SqlT.Tools
     {
         public static Pdm Pdm { get; set; }
 
-
         public static void Reads(string path)
         {
-           // var allTableAttributes = new List<TableAttributes>();
-            //var allTables = new List<TableData>();
             var xml = new XmlDocument();
             var xmlNamespaceManager = new XmlNamespaceManager(xml.NameTable);
             xmlNamespaceManager.AddNamespace("a", "attribute");
@@ -24,22 +21,6 @@ namespace SqlT.Tools
             var xmlNodeRefer = xml.SelectSingleNode("//c:References", xmlNamespaceManager);
             Pdm = XmlToJson.ToJson(xmlNode, xmlNodeRefer);
         }
-
-        //if (xmlNode != null)
-        //{
-        //    var xmlNodeList = xmlNode.ChildNodes;
-        //    foreach (XmlNode item in xmlNodeList)
-        //    {
-        //        var readTable = ReadTable(item, out var allTableAttribute);
-        //        allTables.Add(readTable);
-        //        allTableAttributes.AddRange(allTableAttribute);
-        //    }
-        //}
-        //pdm.ListAttributesList = allTableAttributes;
-        //pdm.ListTableData = allTables;
-        //Pdm = pdm;
-
-
 
         /// <summary>
         /// 读取表结构
