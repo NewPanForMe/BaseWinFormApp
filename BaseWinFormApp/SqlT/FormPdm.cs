@@ -185,7 +185,11 @@ namespace SqlT
             var generateDbConn = SqlDbHelper.GenerateDbConn(dbIpTb.Text, userNameTb.Text, passwordTb.Text, dbNameTb.Text);
             if (generateDbConn)
             {
-                SqlDbHelper.Execute(_createTbSql);
+                var execute = SqlDbHelper.Execute(_createTbSql);
+                if (execute > 0)
+                {
+                    MessageBox.Show(@"执行成功");
+                }
             }
         }
     }
