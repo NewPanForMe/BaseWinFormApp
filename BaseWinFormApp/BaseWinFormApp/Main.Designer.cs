@@ -30,35 +30,41 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.首页ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件遍历ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.文件读取ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.时间操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.计时器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PDM处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统当前信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.shutDownBtn = new System.Windows.Forms.Button();
-            this.rebotBtn = new System.Windows.Forms.Button();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.文件读取ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.首页ToolStripMenuItem,
             this.文件操作ToolStripMenuItem,
             this.时间操作ToolStripMenuItem,
             this.sQLToolStripMenuItem,
             this.系统ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(801, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 首页ToolStripMenuItem
+            // 
+            this.首页ToolStripMenuItem.Name = "首页ToolStripMenuItem";
+            this.首页ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.首页ToolStripMenuItem.Text = "首页";
+            this.首页ToolStripMenuItem.Click += new System.EventHandler(this.首页ToolStripMenuItem_Click);
             // 
             // 文件操作ToolStripMenuItem
             // 
@@ -74,9 +80,16 @@
             // 
             this.文件遍历ToolStripMenuItem.Name = "文件遍历ToolStripMenuItem";
             this.文件遍历ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.文件遍历ToolStripMenuItem.Text = "文件遍历";
             this.文件遍历ToolStripMenuItem.Click += new System.EventHandler(this.文件遍历ToolStripMenuItem_Click);
+            // 
+            // 文件读取ToolStripMenuItem
+            // 
+            this.文件读取ToolStripMenuItem.Name = "文件读取ToolStripMenuItem";
+            this.文件读取ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.文件读取ToolStripMenuItem.Text = "文件读取";
+            this.文件读取ToolStripMenuItem.Click += new System.EventHandler(this.文件读取ToolStripMenuItem_Click);
             // 
             // 时间操作ToolStripMenuItem
             // 
@@ -126,52 +139,24 @@
             this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.系统当前信息ToolStripMenuItem.Text = "系统当前信息";
             this.系统当前信息ToolStripMenuItem.Click += new System.EventHandler(this.系统当前信息ToolStripMenuItem_Click);
-          
             // 
             // toolStripContainer1
             // 
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.rebotBtn);
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.shutDownBtn);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 385);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 414);
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 410);
+            this.toolStripContainer1.Size = new System.Drawing.Size(800, 439);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // 文件读取ToolStripMenuItem
-            // 
-            this.shutDownBtn.Location = new System.Drawing.Point(3, 3);
-            this.shutDownBtn.Name = "shutDownBtn";
-            this.shutDownBtn.Size = new System.Drawing.Size(67, 55);
-            this.shutDownBtn.TabIndex = 0;
-            this.shutDownBtn.Text = "关机";
-            this.shutDownBtn.UseVisualStyleBackColor = true;
-            this.shutDownBtn.Click += new System.EventHandler(this.shutDownBtn_Click);
-            this.文件读取ToolStripMenuItem.Name = "文件读取ToolStripMenuItem";
-            this.文件读取ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.文件读取ToolStripMenuItem.Text = "文件读取";
-            this.文件读取ToolStripMenuItem.Click += new System.EventHandler(this.文件读取ToolStripMenuItem_Click);
-
-            //
-            // rebotBtn
-            // 
-            this.rebotBtn.Location = new System.Drawing.Point(76, 3);
-            this.rebotBtn.Name = "rebotBtn";
-            this.rebotBtn.Size = new System.Drawing.Size(67, 55);
-            this.rebotBtn.TabIndex = 1;
-            this.rebotBtn.Text = "重启";
-            this.rebotBtn.UseVisualStyleBackColor = true;
-            this.rebotBtn.Click += new System.EventHandler(this.rebotBtn_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(801, 479);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -180,7 +165,6 @@
             this.Text = "工具";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
             this.ResumeLayout(false);
@@ -200,8 +184,7 @@
         private System.Windows.Forms.ToolStripMenuItem PDM处理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统当前信息ToolStripMenuItem;
-        private System.Windows.Forms.Button rebotBtn;
-        private System.Windows.Forms.Button shutDownBtn;
         private System.Windows.Forms.ToolStripMenuItem 文件读取ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 首页ToolStripMenuItem;
     }
 }

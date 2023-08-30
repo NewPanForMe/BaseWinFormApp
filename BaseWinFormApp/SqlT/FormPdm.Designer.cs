@@ -37,13 +37,31 @@
             this.genClass = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nameSpaceTbx = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.selectGenClassBtn = new System.Windows.Forms.Button();
             this.genClassPath = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.testConnBtn = new System.Windows.Forms.Button();
+            this.passwordTb = new System.Windows.Forms.TextBox();
+            this.dbNameTb = new System.Windows.Forms.TextBox();
+            this.userNameTb = new System.Windows.Forms.TextBox();
+            this.dbIpTb = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.execSqlBtn = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // selectPdmBtn
             // 
-            this.selectPdmBtn.Location = new System.Drawing.Point(12, 12);
+            this.selectPdmBtn.Location = new System.Drawing.Point(0, 12);
             this.selectPdmBtn.Name = "selectPdmBtn";
             this.selectPdmBtn.Size = new System.Drawing.Size(158, 43);
             this.selectPdmBtn.TabIndex = 0;
@@ -55,7 +73,7 @@
             // 
             this.pdmPathLabel.AutoSize = true;
             this.pdmPathLabel.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.pdmPathLabel.Location = new System.Drawing.Point(176, 25);
+            this.pdmPathLabel.Location = new System.Drawing.Point(170, 25);
             this.pdmPathLabel.Name = "pdmPathLabel";
             this.pdmPathLabel.Size = new System.Drawing.Size(98, 14);
             this.pdmPathLabel.TabIndex = 1;
@@ -64,9 +82,9 @@
             // 
             // genSqlBtn
             // 
-            this.genSqlBtn.Location = new System.Drawing.Point(12, 61);
+            this.genSqlBtn.Location = new System.Drawing.Point(6, 15);
             this.genSqlBtn.Name = "genSqlBtn";
-            this.genSqlBtn.Size = new System.Drawing.Size(158, 39);
+            this.genSqlBtn.Size = new System.Drawing.Size(152, 39);
             this.genSqlBtn.TabIndex = 2;
             this.genSqlBtn.Text = "生成SQL";
             this.genSqlBtn.UseVisualStyleBackColor = true;
@@ -76,24 +94,24 @@
             // 
             this.sqlTypeComb.Font = new System.Drawing.Font("宋体", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.sqlTypeComb.FormattingEnabled = true;
-            this.sqlTypeComb.Location = new System.Drawing.Point(179, 63);
+            this.sqlTypeComb.Location = new System.Drawing.Point(167, 17);
             this.sqlTypeComb.Name = "sqlTypeComb";
-            this.sqlTypeComb.Size = new System.Drawing.Size(176, 37);
+            this.sqlTypeComb.Size = new System.Drawing.Size(170, 37);
             this.sqlTypeComb.TabIndex = 3;
             // 
             // pdmResRichBx
             // 
-            this.pdmResRichBx.Location = new System.Drawing.Point(12, 151);
+            this.pdmResRichBx.Location = new System.Drawing.Point(6, 105);
             this.pdmResRichBx.Name = "pdmResRichBx";
-            this.pdmResRichBx.Size = new System.Drawing.Size(343, 283);
+            this.pdmResRichBx.Size = new System.Drawing.Size(331, 106);
             this.pdmResRichBx.TabIndex = 4;
             this.pdmResRichBx.Text = "";
             // 
             // copyBtn
             // 
-            this.copyBtn.Location = new System.Drawing.Point(12, 106);
+            this.copyBtn.Location = new System.Drawing.Point(6, 60);
             this.copyBtn.Name = "copyBtn";
-            this.copyBtn.Size = new System.Drawing.Size(343, 39);
+            this.copyBtn.Size = new System.Drawing.Size(152, 39);
             this.copyBtn.TabIndex = 5;
             this.copyBtn.Text = "Copy";
             this.copyBtn.UseVisualStyleBackColor = true;
@@ -101,9 +119,9 @@
             // 
             // genClass
             // 
-            this.genClass.Location = new System.Drawing.Point(361, 45);
+            this.genClass.Location = new System.Drawing.Point(4, 114);
             this.genClass.Name = "genClass";
-            this.genClass.Size = new System.Drawing.Size(381, 39);
+            this.genClass.Size = new System.Drawing.Size(366, 39);
             this.genClass.TabIndex = 6;
             this.genClass.Text = "生成Class";
             this.genClass.UseVisualStyleBackColor = true;
@@ -112,60 +130,205 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(359, 15);
+            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(6, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "命名空间：";
             // 
             // nameSpaceTbx
             // 
             this.nameSpaceTbx.BackColor = System.Drawing.SystemColors.Window;
-            this.nameSpaceTbx.Location = new System.Drawing.Point(430, 12);
+            this.nameSpaceTbx.Location = new System.Drawing.Point(99, 20);
             this.nameSpaceTbx.Multiline = true;
             this.nameSpaceTbx.Name = "nameSpaceTbx";
-            this.nameSpaceTbx.Size = new System.Drawing.Size(113, 27);
+            this.nameSpaceTbx.Size = new System.Drawing.Size(271, 43);
             this.nameSpaceTbx.TabIndex = 9;
             // 
-            // button1
+            // selectGenClassBtn
             // 
-            this.button1.Location = new System.Drawing.Point(549, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "文件位置";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.selectGenClassBtn.Location = new System.Drawing.Point(4, 69);
+            this.selectGenClassBtn.Name = "selectGenClassBtn";
+            this.selectGenClassBtn.Size = new System.Drawing.Size(89, 39);
+            this.selectGenClassBtn.TabIndex = 10;
+            this.selectGenClassBtn.Text = "文件位置";
+            this.selectGenClassBtn.UseVisualStyleBackColor = true;
+            this.selectGenClassBtn.Click += new System.EventHandler(this.selectGenClassBtn_Click);
             // 
             // genClassPath
             // 
             this.genClassPath.BackColor = System.Drawing.SystemColors.Window;
-            this.genClassPath.Location = new System.Drawing.Point(629, 12);
+            this.genClassPath.Location = new System.Drawing.Point(99, 71);
             this.genClassPath.Multiline = true;
             this.genClassPath.Name = "genClassPath";
-            this.genClassPath.Size = new System.Drawing.Size(113, 27);
+            this.genClassPath.Size = new System.Drawing.Size(271, 37);
             this.genClassPath.TabIndex = 11;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.nameSpaceTbx);
+            this.groupBox1.Controls.Add(this.genClassPath);
+            this.groupBox1.Controls.Add(this.genClass);
+            this.groupBox1.Controls.Add(this.selectGenClassBtn);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(366, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(376, 166);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "类文件生成";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.selectPdmBtn);
+            this.groupBox2.Controls.Add(this.pdmPathLabel);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(343, 63);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "PDM选择";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.execSqlBtn);
+            this.groupBox3.Controls.Add(this.pdmResRichBx);
+            this.groupBox3.Controls.Add(this.genSqlBtn);
+            this.groupBox3.Controls.Add(this.sqlTypeComb);
+            this.groupBox3.Controls.Add(this.copyBtn);
+            this.groupBox3.Location = new System.Drawing.Point(12, 81);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(343, 222);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "SQL生成区";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.testConnBtn);
+            this.groupBox4.Controls.Add(this.passwordTb);
+            this.groupBox4.Controls.Add(this.dbNameTb);
+            this.groupBox4.Controls.Add(this.userNameTb);
+            this.groupBox4.Controls.Add(this.dbIpTb);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Location = new System.Drawing.Point(12, 309);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(342, 117);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "数据库信息记录";
+            // 
+            // testConnBtn
+            // 
+            this.testConnBtn.Location = new System.Drawing.Point(274, 17);
+            this.testConnBtn.Name = "testConnBtn";
+            this.testConnBtn.Size = new System.Drawing.Size(62, 94);
+            this.testConnBtn.TabIndex = 24;
+            this.testConnBtn.Text = "测试链接";
+            this.testConnBtn.UseVisualStyleBackColor = true;
+            this.testConnBtn.Click += new System.EventHandler(this.testConnBtn_Click);
+            // 
+            // passwordTb
+            // 
+            this.passwordTb.Location = new System.Drawing.Point(78, 66);
+            this.passwordTb.Name = "passwordTb";
+            this.passwordTb.Size = new System.Drawing.Size(189, 21);
+            this.passwordTb.TabIndex = 23;
+            // 
+            // dbNameTb
+            // 
+            this.dbNameTb.Location = new System.Drawing.Point(78, 90);
+            this.dbNameTb.Name = "dbNameTb";
+            this.dbNameTb.Size = new System.Drawing.Size(189, 21);
+            this.dbNameTb.TabIndex = 22;
+            // 
+            // userNameTb
+            // 
+            this.userNameTb.Location = new System.Drawing.Point(78, 39);
+            this.userNameTb.Name = "userNameTb";
+            this.userNameTb.Size = new System.Drawing.Size(189, 21);
+            this.userNameTb.TabIndex = 21;
+            // 
+            // dbIpTb
+            // 
+            this.dbIpTb.Location = new System.Drawing.Point(78, 14);
+            this.dbIpTb.Name = "dbIpTb";
+            this.dbIpTb.Size = new System.Drawing.Size(189, 21);
+            this.dbIpTb.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(27, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "用户名";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(39, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "密码";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(3, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "数据库名称";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(15, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "数据库IP";
+            // 
+            // execSqlBtn
+            // 
+            this.execSqlBtn.Location = new System.Drawing.Point(167, 61);
+            this.execSqlBtn.Name = "execSqlBtn";
+            this.execSqlBtn.Size = new System.Drawing.Size(169, 38);
+            this.execSqlBtn.TabIndex = 6;
+            this.execSqlBtn.Text = "执行建表SQL";
+            this.execSqlBtn.UseVisualStyleBackColor = true;
+            this.execSqlBtn.Click += new System.EventHandler(this.execSqlBtn_Click);
             // 
             // FormPdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 446);
-            this.Controls.Add(this.genClassPath);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.nameSpaceTbx);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.genClass);
-            this.Controls.Add(this.copyBtn);
-            this.Controls.Add(this.pdmResRichBx);
-            this.Controls.Add(this.sqlTypeComb);
-            this.Controls.Add(this.genSqlBtn);
-            this.Controls.Add(this.pdmPathLabel);
-            this.Controls.Add(this.selectPdmBtn);
+            this.ClientSize = new System.Drawing.Size(754, 453);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FormPdm";
             this.Text = "     ";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -180,7 +343,21 @@
         private System.Windows.Forms.Button genClass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nameSpaceTbx;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button selectGenClassBtn;
         private System.Windows.Forms.TextBox genClassPath;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox dbIpTb;
+        private System.Windows.Forms.TextBox userNameTb;
+        private System.Windows.Forms.TextBox dbNameTb;
+        private System.Windows.Forms.TextBox passwordTb;
+        private System.Windows.Forms.Button testConnBtn;
+        private System.Windows.Forms.Button execSqlBtn;
     }
 }

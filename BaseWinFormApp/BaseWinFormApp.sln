@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlT", "SqlT\SqlT.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysT", "SysT\SysT.csproj", "{CCA59D4B-34FA-4670-84A2-85EC377A2455}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desktop", "Desktop\Desktop.csproj", "{110F90B4-101E-4730-8D3A-5BAB19C0F1FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CCA59D4B-34FA-4670-84A2-85EC377A2455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCA59D4B-34FA-4670-84A2-85EC377A2455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCA59D4B-34FA-4670-84A2-85EC377A2455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{110F90B4-101E-4730-8D3A-5BAB19C0F1FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{110F90B4-101E-4730-8D3A-5BAB19C0F1FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{110F90B4-101E-4730-8D3A-5BAB19C0F1FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{110F90B4-101E-4730-8D3A-5BAB19C0F1FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

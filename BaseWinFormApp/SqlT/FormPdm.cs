@@ -17,6 +17,7 @@ namespace SqlT
     {
         private string _pdmPath = string.Empty;
         private string _generateClassFilePath = string.Empty;
+        private string _createTbSql = string.Empty;
 
         public FormPdm()
         {
@@ -28,7 +29,11 @@ namespace SqlT
             this.pdmResRichBx.ReadOnly = true;
             genClassPath.ReadOnly = true;
         }
-
+        /// <summary>
+        /// 选择pdm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void selectPdmBtn_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
@@ -53,6 +58,11 @@ namespace SqlT
             PdmReaders.Reads(_pdmPath);
         }
 
+        /// <summary>
+        /// 生成sql
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void genSqlBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(_pdmPath))
@@ -66,26 +76,29 @@ namespace SqlT
                 return;
             }
             var pdm = PdmReaders.Pdm;
-            var generateSqlServer = string.Empty;
+            var generateSql = string.Empty;
             switch (sqlTypeComb.Text)
             {
                 case "SqlServer":
-                    generateSqlServer = SqlTools.GenerateSqlServer(pdm);
+                    generateSql = SqlTools.GenerateSqlServer(pdm);
                     break;
                 case "PostgreSQL":
-                    generateSqlServer = SqlTools.GeneratePgSql(pdm);
+                    generateSql = SqlTools.GeneratePgSql(pdm);
                     break;
                 case "MySQL":
-                    generateSqlServer = SqlTools.GenerateMySql(pdm);
+                    generateSql = SqlTools.GenerateMySql(pdm);
                     break;
             }
 
-            Console.WriteLine(pdm.TableJsonString);
-
             this.pdmResRichBx.Text = string.Empty;
-            this.pdmResRichBx.Text = generateSqlServer;
+            this.pdmResRichBx.Text = generateSql;
+            _createTbSql = generateSql;
         }
-
+        /// <summary>
+        /// 复制
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void copyBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(_pdmPath))
@@ -97,6 +110,11 @@ namespace SqlT
             Clipboard.SetText(this.pdmResRichBx.Text);
         }
 
+        /// <summary>
+        /// 生成类文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void genClass_Click(object sender, EventArgs e)
         {
             var pdm = PdmReaders.Pdm;
@@ -114,13 +132,60 @@ namespace SqlT
             Process.Start(_generateClassFilePath);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 选择生成类文件加
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void selectGenClassBtn_Click(object sender, EventArgs e)
         {
             var dialog = new FolderBrowserDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 genClassPath.Text = dialog.SelectedPath;
                 _generateClassFilePath = dialog.SelectedPath;
+            }
+        }
+
+        /// <summary>
+        /// 测试链接
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void testConnBtn_Click(object sender, EventArgs e)
+        {
+            var generateDbConn = SqlDbHelper.GenerateDbConn(dbIpTb.Text, userNameTb.Text, passwordTb.Text, dbNameTb.Text);
+            if (generateDbConn)
+            {
+                var testDb = SqlDbHelper.TestDb();
+                if (!testDb)
+                {
+                    MessageBox.Show(@"链接失败");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(@"链接成功");
+                    return;
+                }
+            }
+        }
+        /// <summary>
+        /// 执行SQL
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void execSqlBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(_createTbSql))
+            {
+                MessageBox.Show(@"SQL未生成");
+                return;
+            }
+            var generateDbConn = SqlDbHelper.GenerateDbConn(dbIpTb.Text, userNameTb.Text, passwordTb.Text, dbNameTb.Text);
+            if (generateDbConn)
+            {
+                SqlDbHelper.Execute(_createTbSql);
             }
         }
     }

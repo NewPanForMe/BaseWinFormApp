@@ -29,6 +29,11 @@ public class XmlToJson
         };
     }
 
+    /// <summary>
+    /// 相关字符替换
+    /// </summary>
+    /// <param name="deserializeXmlNode"></param>
+    /// <returns></returns>
     private static string Replace(string deserializeXmlNode)
     {
         deserializeXmlNode = deserializeXmlNode.Replace("a:ObjectID", "A_ObjectID");

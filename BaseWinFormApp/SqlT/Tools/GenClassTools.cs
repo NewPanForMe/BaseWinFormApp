@@ -46,6 +46,12 @@ public class GenClassTools
                 {
                     colUmnDataType = "DateTime";
                 }
+                else if (colUmnDataType.Contains("text"))
+                {
+                    colUmnDataType = "string";
+                }
+
+
                 columnSql += " /// <summary>  \r\n ";
                 columnSql += $"/// {columnComment} \r\n ";
                 columnSql += "/// </summary>  \r\n ";
@@ -54,6 +60,7 @@ public class GenClassTools
             var content = readAllText.Replace("{命名空间}", nameSpace);
             content = content.Replace("{字段}", columnSql);
             content = content.Replace("{表名}", tableCode);
+            content = content.Replace("{表头注释}", tableComment);
             var dir = Path.Combine(filePath, $"{tableCode}.cs");
             File.WriteAllText(dir, content);
         });

@@ -1,5 +1,8 @@
 namespace {命名空间};
 
+/// <summary>
+/// {表头注释}
+/// </summary>
 public record {表名}
 {
     {字段}
