@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Public.Alert;
+using SqlT.Models;
 using SqlT.Tools;
 
 namespace SqlT
@@ -28,7 +30,10 @@ namespace SqlT
             sqlTypeComb.Items.Add("MySQL");
             this.pdmResRichBx.ReadOnly = true;
             genClassPath.ReadOnly = true;
+            sqlConnComBx.DropDownStyle = ComboBoxStyle.DropDownList;
+            RefreshSqlConnComBx();
         }
+
         /// <summary>
         /// 选择pdm
         /// </summary>
@@ -59,6 +64,19 @@ namespace SqlT
         }
 
         /// <summary>
+        /// 重新加载数据库框s数据
+        /// </summary>
+        private void RefreshSqlConnComBx()
+        {
+            sqlConnComBx.Items.Clear();
+            var generateDbConnSelect = SqlDbHelper.GenerateDbConnSelect();
+            generateDbConnSelect.ForEach(x =>
+            {
+                sqlConnComBx.Items.Add(x);
+            });
+        }
+
+        /// <summary>
         /// 生成sql
         /// </summary>
         /// <param name="sender"></param>
@@ -67,12 +85,12 @@ namespace SqlT
         {
             if (string.IsNullOrEmpty(_pdmPath))
             {
-                MessageBox.Show(@"请选择PDM文件");
+                MessageAlert.ShowInfo(@"请选择PDM文件");
                 return;
             }
             if (string.IsNullOrEmpty(sqlTypeComb.Text))
             {
-                MessageBox.Show(@"请选择生成SQL类型");
+                MessageAlert.ShowInfo(@"请选择生成SQL类型");
                 return;
             }
             var pdm = PdmReaders.Pdm;
@@ -103,7 +121,7 @@ namespace SqlT
         {
             if (string.IsNullOrEmpty(_pdmPath))
             {
-                MessageBox.Show(@"请先选择PDM文件");
+                MessageAlert.ShowInfo(@"请先选择PDM文件");
                 return;
             }
             this.pdmResRichBx.SelectAll();
@@ -120,15 +138,15 @@ namespace SqlT
             var pdm = PdmReaders.Pdm;
             if (string.IsNullOrEmpty(_generateClassFilePath))
             {
-                MessageBox.Show(@"请选择文件位置");
+                MessageAlert.ShowWarning(@"请选择文件位置");
                 return;
             }
             if (string.IsNullOrEmpty(nameSpaceTbx.Text))
             {
-                MessageBox.Show(@"请输入命名空间");
+                MessageAlert.ShowWarning(@"请输入命名空间");
                 return;
             }
-            GenClassTools.Generate(pdm,nameSpaceTbx.Text, _generateClassFilePath);
+            GenClassTools.Generate(pdm, nameSpaceTbx.Text, _generateClassFilePath);
             Process.Start(_generateClassFilePath);
         }
 
@@ -158,18 +176,12 @@ namespace SqlT
             if (generateDbConn)
             {
                 var testDb = SqlDbHelper.TestDb();
-                if (!testDb)
-                {
-                    MessageBox.Show(@"链接失败");
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show(@"链接成功");
-                    return;
-                }
+                MessageAlert.ShowInfo(!testDb ? @"链接失败" : @"链接成功");
+                SqlDbHelper.GenerateJsonFile(dbIpTb.Text, userNameTb.Text, passwordTb.Text, dbNameTb.Text);
+                RefreshSqlConnComBx();
             }
         }
+
         /// <summary>
         /// 执行SQL
         /// </summary>
@@ -179,7 +191,7 @@ namespace SqlT
         {
             if (string.IsNullOrEmpty(_createTbSql))
             {
-                MessageBox.Show(@"SQL未生成");
+                MessageAlert.ShowWarning(@"SQL未生成");
                 return;
             }
             var generateDbConn = SqlDbHelper.GenerateDbConn(dbIpTb.Text, userNameTb.Text, passwordTb.Text, dbNameTb.Text);
@@ -188,9 +200,23 @@ namespace SqlT
                 var execute = SqlDbHelper.Execute(_createTbSql);
                 if (execute > 0)
                 {
-                    MessageBox.Show(@"执行成功");
+                    MessageAlert.ShowInfo(@"执行成功");
                 }
             }
+        }
+
+        /// <summary>
+        /// sql选项改变方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sqlConnComBx_Change(object sender, EventArgs e)
+        {
+            var conn = (SqlConn)(((ComboBox)sender).SelectedItem);
+            dbIpTb.Text = conn.Ip;
+            userNameTb.Text = conn.UserName;
+            passwordTb.Text = conn.Password;
+            dbNameTb.Text = conn.DataBase;
         }
     }
 }

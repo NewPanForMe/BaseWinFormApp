@@ -113,5 +113,16 @@ namespace BaseWinFormApp
             form.Show();
         }
 
+        private void 连接测试ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormTestDb()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            AddToolStrip(form);
+            form.Show();
+        }
     }
 }

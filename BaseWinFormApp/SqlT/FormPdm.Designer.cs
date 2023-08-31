@@ -42,6 +42,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.execSqlBtn = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.testConnBtn = new System.Windows.Forms.Button();
             this.passwordTb = new System.Windows.Forms.TextBox();
@@ -52,7 +53,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.execSqlBtn = new System.Windows.Forms.Button();
+            this.sqlConnComBx = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -204,6 +205,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "SQL生成区";
             // 
+            // execSqlBtn
+            // 
+            this.execSqlBtn.Location = new System.Drawing.Point(167, 61);
+            this.execSqlBtn.Name = "execSqlBtn";
+            this.execSqlBtn.Size = new System.Drawing.Size(169, 38);
+            this.execSqlBtn.TabIndex = 6;
+            this.execSqlBtn.Text = "执行建表SQL";
+            this.execSqlBtn.UseVisualStyleBackColor = true;
+            this.execSqlBtn.Click += new System.EventHandler(this.execSqlBtn_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.testConnBtn);
@@ -224,10 +235,10 @@
             // 
             // testConnBtn
             // 
-            this.testConnBtn.Location = new System.Drawing.Point(274, 17);
+            this.testConnBtn.Location = new System.Drawing.Point(273, 17);
             this.testConnBtn.Name = "testConnBtn";
             this.testConnBtn.Size = new System.Drawing.Size(62, 94);
-            this.testConnBtn.TabIndex = 24;
+            this.testConnBtn.TabIndex = 34;
             this.testConnBtn.Text = "测试链接";
             this.testConnBtn.UseVisualStyleBackColor = true;
             this.testConnBtn.Click += new System.EventHandler(this.testConnBtn_Click);
@@ -250,14 +261,14 @@
             // 
             this.userNameTb.Location = new System.Drawing.Point(78, 39);
             this.userNameTb.Name = "userNameTb";
-            this.userNameTb.Size = new System.Drawing.Size(189, 21);
+            this.userNameTb.Size = new System.Drawing.Size(190, 21);
             this.userNameTb.TabIndex = 21;
             // 
             // dbIpTb
             // 
             this.dbIpTb.Location = new System.Drawing.Point(78, 14);
             this.dbIpTb.Name = "dbIpTb";
-            this.dbIpTb.Size = new System.Drawing.Size(189, 21);
+            this.dbIpTb.Size = new System.Drawing.Size(190, 21);
             this.dbIpTb.TabIndex = 20;
             // 
             // label5
@@ -300,21 +311,21 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "数据库IP";
             // 
-            // execSqlBtn
+            // sqlConnComBx
             // 
-            this.execSqlBtn.Location = new System.Drawing.Point(167, 61);
-            this.execSqlBtn.Name = "execSqlBtn";
-            this.execSqlBtn.Size = new System.Drawing.Size(169, 38);
-            this.execSqlBtn.TabIndex = 6;
-            this.execSqlBtn.Text = "执行建表SQL";
-            this.execSqlBtn.UseVisualStyleBackColor = true;
-            this.execSqlBtn.Click += new System.EventHandler(this.execSqlBtn_Click);
+            this.sqlConnComBx.FormattingEnabled = true;
+            this.sqlConnComBx.Location = new System.Drawing.Point(370, 184);
+            this.sqlConnComBx.Name = "sqlConnComBx";
+            this.sqlConnComBx.Size = new System.Drawing.Size(366, 20);
+            this.sqlConnComBx.TabIndex = 16;
+            this.sqlConnComBx.SelectedIndexChanged += new System.EventHandler(this.sqlConnComBx_Change);
             // 
             // FormPdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 453);
+            this.ClientSize = new System.Drawing.Size(754, 437);
+            this.Controls.Add(this.sqlConnComBx);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -349,15 +360,16 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button execSqlBtn;
+        private System.Windows.Forms.TextBox passwordTb;
+        private System.Windows.Forms.TextBox dbNameTb;
+        private System.Windows.Forms.TextBox userNameTb;
+        private System.Windows.Forms.TextBox dbIpTb;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox dbIpTb;
-        private System.Windows.Forms.TextBox userNameTb;
-        private System.Windows.Forms.TextBox dbNameTb;
-        private System.Windows.Forms.TextBox passwordTb;
         private System.Windows.Forms.Button testConnBtn;
-        private System.Windows.Forms.Button execSqlBtn;
+        private System.Windows.Forms.ComboBox sqlConnComBx;
     }
 }
