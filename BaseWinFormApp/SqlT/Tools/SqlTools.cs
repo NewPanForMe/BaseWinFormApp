@@ -15,6 +15,21 @@ public class SqlTools
         "\r\ncreate table {表名}\r\n(\r\n   {字段} \r\n    primary key ({主键})    \r\n);";
 
     /// <summary>
+    /// 插入SQL
+    /// </summary>
+    private const string InsertSqlTemplate = @"INSERT INTO {表名} ({字段})  VALUES  ({插入字段})";
+    /// <summary>
+    /// 修改SQL
+    /// </summary>
+    private const string UpdateSqlTemplate = @"UPDATE {表名}  SET {修改字段} WHERE 1=1  {查询条件}";
+    /// <summary>
+    /// 删除SQL
+    /// </summary>
+    private const string DeleteSqlTemplate = @"DELETE FROM {表名}  WHERE 1=1 {查询条件}";
+
+
+
+    /// <summary>
     /// 生成Mysql
     /// </summary>
     /// <param name="pdm"></param>
@@ -61,6 +76,7 @@ public class SqlTools
         });
         return sql.ToString();
     }
+
     /// <summary>
     /// 生成sqlserver
     /// </summary>
