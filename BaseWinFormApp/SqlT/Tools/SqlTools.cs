@@ -1,42 +1,37 @@
 ﻿using System;
 using System.Configuration;
 using System.Text;
+using Public.Alert;
 
 namespace SqlT.Tools;
 
-public class SqlTools
+public static class SqlTools
 {
+    private static readonly Pdm Pdm = PdmReaders.Pdm;
 
-    private static readonly string SqlServerCreateTable =
-        "\r\ncreate table {表名} \r\n(\r\n {字段}  \r\n  constraint PK_{表名大写} primary key nonclustered ({主键}) \r\n)";
-    private static readonly string PgSqlCreateTable =
+    private const string SqlServerCreateTable =
+        "\r\ncreate table {表名} \r\n(\r\n {字段}  \r\n  constraint PK_{表名大写} primary key nonclustered ({主键}) \r\n);";
+
+    private const string PgSqlCreateTable =
         "\r\ncreate table {表名}\r\n(\r\n {字段}   \r\n    constraint PK_{表名大写} primary key ({主键})     \r\n);";
-    private static readonly string MySqlCreateTable =
+
+    private const string MySqlCreateTable =
         "\r\ncreate table {表名}\r\n(\r\n   {字段} \r\n    primary key ({主键})    \r\n);";
 
     /// <summary>
     /// 插入SQL
     /// </summary>
-    private const string InsertSqlTemplate = @"INSERT INTO {表名} ({字段})  VALUES  ({插入字段})";
-    /// <summary>
-    /// 修改SQL
-    /// </summary>
-    private const string UpdateSqlTemplate = @"UPDATE {表名}  SET {修改字段} WHERE 1=1  {查询条件}";
-    /// <summary>
-    /// 删除SQL
-    /// </summary>
-    private const string DeleteSqlTemplate = @"DELETE FROM {表名}  WHERE 1=1 {查询条件}";
-
-
+    private const string InsertSqlTemplate = @"INSERT INTO {表名} ({字段})  VALUES  ({插入字段});";
 
     /// <summary>
     /// 生成Mysql
     /// </summary>
     /// <param name="pdm"></param>
-    public static string GenerateMySql(Pdm pdm)
+    public static string GenerateMySql()
     {
+        InitPdm();
         var sql = new StringBuilder();
-        pdm.TableRoot.C_Tables.O_Table.ForEach(table =>
+        Pdm.TableRoot.C_Tables.O_Table.ForEach(table =>
         {
             var tableName = table.A_Name;
             var tableCode = table.A_Code;
@@ -81,10 +76,11 @@ public class SqlTools
     /// 生成sqlserver
     /// </summary>
     /// <param name="pdm"></param>
-    public static string GenerateSqlServer(Pdm pdm)
+    public static string GenerateSqlServer()
     {
+        InitPdm();
         var sql = new StringBuilder();
-        pdm.TableRoot.C_Tables.O_Table.ForEach(table =>
+        Pdm.TableRoot.C_Tables.O_Table.ForEach(table =>
         {
             var tableName = table.A_Name;
             var tableCode = table.A_Code;
@@ -109,6 +105,7 @@ public class SqlTools
                 {
                     colUmnDataType = "datetime";
                 }
+
                 if (!string.IsNullOrEmpty(columnIdentity) && columnCode.ToLower() == "id")
                 {
                     columnSql += $@"   {columnCode}  {colUmnDataType}  identity(1,1)  , " + " \r\n";
@@ -119,6 +116,7 @@ public class SqlTools
                         ? $@"   {columnCode}  {colUmnDataType}  null  , " + " \r\n"
                         : $@"   {columnCode}  {colUmnDataType}  not null ," + " \r\n";
                 }
+
                 if (columnId == pkId)
                 {
                     tableSql = tableSql.Replace("{主键}", columnCode);
@@ -134,10 +132,12 @@ public class SqlTools
     /// 生辰pgsql
     /// </summary>
     /// <param name="pdm"></param>
-    public static string GeneratePgSql(Pdm pdm)
+    public static string GeneratePgSql()
     {
+        InitPdm();
+
         var sql = new StringBuilder();
-        pdm.TableRoot.C_Tables.O_Table.ForEach(table =>
+        Pdm.TableRoot.C_Tables.O_Table.ForEach(table =>
         {
             var tableName = table.A_Name;
             var tableCode = table.A_Code;
@@ -155,8 +155,8 @@ public class SqlTools
                 var columnComment = column.A_Comment;
                 var columnId = column.Id;
                 var colUmnDataType = column.A_DataType;
-                var columnMandatory = column.A_Column_Mandatory;//not null
-                var columnIdentity = column.A_Identity;//自增
+                var columnMandatory = column.A_Column_Mandatory; //not null
+                var columnIdentity = column.A_Identity; //自增
                 columnSql += string.IsNullOrEmpty(columnMandatory)
                     ? $@"   {columnCode}  {colUmnDataType}  null  , " + " \r\n"
                     : $@"   {columnCode}  {colUmnDataType}  not null ," + " \r\n";
@@ -164,6 +164,7 @@ public class SqlTools
                 {
                     columnSql = $@"{columnCode}  SERIAL   not null ," + " \r\n";
                 }
+
                 if (columnId == pkId)
                 {
                     tableSql = tableSql.Replace("{主键}", columnCode);
@@ -174,5 +175,76 @@ public class SqlTools
             sql.Append(tableSql);
         });
         return sql.ToString();
+    }
+
+
+    /// <summary>
+    /// 保存PDM中的表
+    /// </summary>
+    public static void SavePdmTable()
+    {
+        InitPdm();
+        //插表SQL
+        var insertTableSql = string.Empty;
+        var insertTableDetailSql = string.Empty;
+
+        Pdm.TableRoot.C_Tables.O_Table.ForEach(table =>
+        {
+            var tableName = table.A_Name;
+            var tableCode = table.A_Code;
+            var tableComment = table.A_Comment;
+            var tableId = table.Id;
+            var columnSql = string.Empty;
+            var tablePkName = string.Empty;
+            var tablePkCode = string.Empty;
+            var pkId = table.C_Keys.O_Key.C_Key_Columns.O_Column.@Ref;
+            table.C_Columns.O_Column.ForEach(column =>
+            {
+                var columnName = column.A_Name;
+                var columnCode = column.A_Code;
+                var columnComment = column.A_Comment;
+                var columnId = column.Id;
+                var colUmnDataType = column.A_DataType;
+                var columnMandatory = column.A_Column_Mandatory; //not null
+                var columnIdentity = column.A_Identity; //自增
+
+                if (columnId == pkId)
+                {
+                    tablePkName = columnName;
+                    tablePkCode = columnCode;
+                }
+
+            });
+            //主键
+            var code = Guid.NewGuid().ToString();
+            //主表sql
+            var tableSql = InsertSqlTemplate.Replace("{表名}", tableCode);
+            tableSql = tableSql.Replace("{字段}", "[Code]\r\n  ,[Name]\r\n,[TbCode]\r\n ,[Comment]\r\n ,[PK]\r\n,[PkCode]\r\n");
+            tableSql = tableSql.Replace("{插入字段}", $"'{code}','{tableName}','{tableCode}','{tableComment}','{tablePkCode}','{tablePkName}'");
+            insertTableSql += tableSql;
+            //子表SQL
+            var tableDetailSql = InsertSqlTemplate.Replace("{表名}", "[Pdm_TableDetail]");
+
+
+
+
+
+        });
+    }
+
+
+
+
+
+    /// <summary>
+    /// 验证是否读取到PDM
+    /// </summary>
+    private static void InitPdm()
+    {
+        if (Pdm == null)
+        {
+            MessageAlert.ShowWarning(@"未读取到PDM数据");
+            return;
+        }
     }
 }

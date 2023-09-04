@@ -38,10 +38,10 @@
             this.计时器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PDM处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.连接测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统当前信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.连接测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -127,6 +127,13 @@
             this.PDM处理ToolStripMenuItem.Text = "PDM处理";
             this.PDM处理ToolStripMenuItem.Click += new System.EventHandler(this.PDM处理ToolStripMenuItem_Click);
             // 
+            // 连接测试ToolStripMenuItem
+            // 
+            this.连接测试ToolStripMenuItem.Name = "连接测试ToolStripMenuItem";
+            this.连接测试ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.连接测试ToolStripMenuItem.Text = "连接测试";
+            this.连接测试ToolStripMenuItem.Click += new System.EventHandler(this.连接测试ToolStripMenuItem_Click);
+            // 
             // 系统ToolStripMenuItem
             // 
             this.系统ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -138,7 +145,7 @@
             // 系统当前信息ToolStripMenuItem
             // 
             this.系统当前信息ToolStripMenuItem.Name = "系统当前信息ToolStripMenuItem";
-            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.系统当前信息ToolStripMenuItem.Text = "系统当前信息";
             this.系统当前信息ToolStripMenuItem.Click += new System.EventHandler(this.系统当前信息ToolStripMenuItem_Click);
             // 
@@ -153,13 +160,6 @@
             this.toolStripContainer1.Size = new System.Drawing.Size(800, 439);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // 连接测试ToolStripMenuItem
-            // 
-            this.连接测试ToolStripMenuItem.Name = "连接测试ToolStripMenuItem";
-            this.连接测试ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.连接测试ToolStripMenuItem.Text = "连接测试";
-            this.连接测试ToolStripMenuItem.Click += new System.EventHandler(this.连接测试ToolStripMenuItem_Click);
             // 
             // Main
             // 

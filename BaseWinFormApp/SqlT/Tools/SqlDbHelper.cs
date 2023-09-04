@@ -29,21 +29,25 @@ public class SqlDbHelper
             MessageAlert.ShowWarning(@"数据库IP为空");
             return false;
         }
+
         if (string.IsNullOrEmpty(userName))
         {
             MessageAlert.ShowWarning(@"数据库用户名为空");
             return false;
         }
+
         if (string.IsNullOrEmpty(password))
         {
             MessageAlert.ShowWarning(@"数据库密码为空");
             return false;
         }
+
         if (string.IsNullOrEmpty(db))
         {
             MessageAlert.ShowWarning(@"数据库名为空");
             return false;
         }
+
         _connString = @$"server={ip};database={db};user id={userName};password={password};TrustServerCertificate=true";
 
         return true;
@@ -84,6 +88,7 @@ public class SqlDbHelper
             var sqlConnList = JsonTools.Deserialize<List<SqlConn>>(sqlConnString);
             return sqlConnList;
         }
+
         return new List<SqlConn>();
     }
 
@@ -148,11 +153,13 @@ public class SqlDbHelper
         catch (Exception e)
         {
             MessageAlert.ShowError(e.Message);
-            return -1;
+            return 0;
         }
         finally
         {
             CloseConn();
         }
     }
+
+
 }

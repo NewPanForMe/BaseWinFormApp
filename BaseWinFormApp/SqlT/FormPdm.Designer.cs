@@ -245,14 +245,14 @@
             // 
             // passwordTb
             // 
-            this.passwordTb.Location = new System.Drawing.Point(78, 66);
+            this.passwordTb.Location = new System.Drawing.Point(78, 90);
             this.passwordTb.Name = "passwordTb";
             this.passwordTb.Size = new System.Drawing.Size(189, 21);
             this.passwordTb.TabIndex = 23;
             // 
             // dbNameTb
             // 
-            this.dbNameTb.Location = new System.Drawing.Point(78, 90);
+            this.dbNameTb.Location = new System.Drawing.Point(77, 66);
             this.dbNameTb.Name = "dbNameTb";
             this.dbNameTb.Size = new System.Drawing.Size(189, 21);
             this.dbNameTb.TabIndex = 22;
@@ -285,7 +285,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(39, 69);
+            this.label4.Location = new System.Drawing.Point(39, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 18;
@@ -295,7 +295,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(3, 96);
+            this.label3.Location = new System.Drawing.Point(6, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 17;

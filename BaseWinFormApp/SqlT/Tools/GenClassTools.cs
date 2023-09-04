@@ -5,7 +5,10 @@ using System.Text;
 
 namespace SqlT.Tools;
 
-public class GenClassTools
+/// <summary>
+/// 生成表相关Model类
+/// </summary>
+public static class GenClassTools
 {
 
     /// <summary>
@@ -23,7 +26,7 @@ public class GenClassTools
             var tableName = table.A_Name;
             var tableCode = table.A_Code;
             var tableComment = table.A_Comment;
-            var tableId = table.@Id;
+            var tableId = table.Id;
             var columnSql = string.Empty;
             //主键
             table.C_Columns.O_Column.ForEach(column =>

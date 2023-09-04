@@ -51,7 +51,7 @@ namespace SqlT
             }
 
             if (string.IsNullOrEmpty(_pdmPath)) return;
-            this.pdmPathLabel.Text = _pdmPath;
+            pdmPathLabel.Text = _pdmPath;
             ParsePdm();
         }
 
@@ -61,6 +61,10 @@ namespace SqlT
         private void ParsePdm()
         {
             PdmReaders.Reads(_pdmPath);
+            SqlTools.SavePdmTable();
+            ;
+
+
         }
 
         /// <summary>
@@ -98,13 +102,13 @@ namespace SqlT
             switch (sqlTypeComb.Text)
             {
                 case "SqlServer":
-                    generateSql = SqlTools.GenerateSqlServer(pdm);
+                    generateSql = SqlTools.GenerateSqlServer();
                     break;
                 case "PostgreSQL":
-                    generateSql = SqlTools.GeneratePgSql(pdm);
+                    generateSql = SqlTools.GeneratePgSql();
                     break;
                 case "MySQL":
-                    generateSql = SqlTools.GenerateMySql(pdm);
+                    generateSql = SqlTools.GenerateMySql();
                     break;
             }
 
@@ -198,7 +202,7 @@ namespace SqlT
             if (generateDbConn)
             {
                 var execute = SqlDbHelper.Execute(_createTbSql);
-                if (execute > 0)
+                if (execute == -1)
                 {
                     MessageAlert.ShowInfo(@"执行成功");
                 }

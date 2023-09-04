@@ -124,5 +124,7 @@ namespace BaseWinFormApp
             AddToolStrip(form);
             form.Show();
         }
+
+     
     }
 }
