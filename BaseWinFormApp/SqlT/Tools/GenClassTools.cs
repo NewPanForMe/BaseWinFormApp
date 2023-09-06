@@ -1,7 +1,5 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
+﻿using System.IO;
+using System.Net.Mime;
 
 namespace SqlT.Tools;
 
@@ -53,11 +51,9 @@ public static class GenClassTools
                 {
                     colUmnDataType = "string";
                 }
-
-
-                columnSql += " /// <summary>  \r\n ";
-                columnSql += $"/// {columnComment} \r\n ";
-                columnSql += "/// </summary>  \r\n ";
+                columnSql += "  /// <summary>  \r\n ";
+                columnSql += $" /// {columnComment} \r\n ";
+                columnSql += "  /// </summary>  \r\n ";
                 columnSql += $@"  public  {colUmnDataType} {columnCode} " + "  { get; set; }   \r\n";
             });
             var content = readAllText.Replace("{命名空间}", nameSpace);

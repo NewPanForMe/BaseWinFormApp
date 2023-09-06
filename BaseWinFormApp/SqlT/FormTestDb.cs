@@ -39,6 +39,7 @@ namespace SqlT
                 var testDb = SqlDbHelper.TestDb();
                 MessageAlert.ShowInfo(!testDb ? @"链接失败" : @"链接成功");
                 SqlDbHelper.GenerateJsonFile(dbIpTb.Text, userNameTb.Text, passwordTb.Text, dbNameTb.Text);
+                RefreshSqlConnComBx();
             }
         }
 

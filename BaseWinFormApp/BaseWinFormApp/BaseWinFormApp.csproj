@@ -170,9 +170,12 @@
   <ItemGroup>
     <Content Include="ico\setting1.ico" />
     <Content Include="ILMergeOrder.txt" />
-    <EmbeddedResource Include="Template\Class.txt">
+    <None Include="Template\PdmTableSignCode.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </None>
+    <None Include="Template\Class.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Desktop\Desktop.csproj">

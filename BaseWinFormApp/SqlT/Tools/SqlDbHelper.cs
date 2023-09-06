@@ -13,7 +13,7 @@ using Ys.Tools.MoreTool;
 
 namespace SqlT.Tools;
 
-public class SqlDbHelper
+public static  class SqlDbHelper
 {
     private static string _connString;
     private const string SqlConnStringPath = "./SqlConnStrings.json";
@@ -142,17 +142,25 @@ public class SqlDbHelper
     /// 执行SQL
     /// </summary>
     /// <param name="sql"></param>
-    public static int Execute(string sql)
+    /// <param name="isTran">是否开启事务</param>
+    public static int Execute(string sql,bool isTran=false)
     {
+        IDbTransaction transaction = null;
         try
         {
             OpenConn();
-            var res = _conn.Execute(sql);
+            if (isTran)
+            {
+                transaction = _conn.BeginTransaction();
+            }
+            var res = _conn.Execute(sql,null, transaction);
+            transaction?.Commit();
             return res;
         }
         catch (Exception e)
         {
             MessageAlert.ShowError(e.Message);
+            transaction?.Rollback();
             return 0;
         }
         finally
@@ -161,5 +169,28 @@ public class SqlDbHelper
         }
     }
 
+
+    /// <summary>
+    /// 查询SQL
+    /// </summary>
+    /// <param name="sql"></param>
+    public static List<T> Query<T>(string sql)
+    {
+        try
+        {
+            OpenConn();
+            var res = _conn.Query<T>(sql).ToList();
+            return res;
+        }
+        catch (Exception e)
+        {
+            MessageAlert.ShowError(e.Message);
+            return new List<T>();
+        }
+        finally
+        {
+            CloseConn();
+        }
+    }
 
 }

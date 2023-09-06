@@ -2,7 +2,7 @@ namespace SqlT.Models;
 
 /// <summary>
 /// Pdm表的主表
-///用于记录表的主要信息
+/// 用于记录表的主要信息
 /// </summary>
 public record Pdm_Table
 {
@@ -35,8 +35,8 @@ public record Pdm_Table
     /// </summary>  
     public string PkCode { get; set; }
     /// <summary>  
-    /// 建表SQL 
+    /// 标记Code 
     /// </summary>  
-    public string CreateTbSql { get; set; }
+    public string SignCode { get; set; }
 
 }

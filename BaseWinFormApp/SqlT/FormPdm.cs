@@ -17,8 +17,17 @@ namespace SqlT
 {
     public partial class FormPdm : Form
     {
+        /// <summary>
+        /// PDM上传路径
+        /// </summary>
         private string _pdmPath = string.Empty;
+        /// <summary>
+        /// 生成类文件夹
+        /// </summary>
         private string _generateClassFilePath = string.Empty;
+        /// <summary>
+        /// 建表SQL
+        /// </summary>
         private string _createTbSql = string.Empty;
 
         public FormPdm()
@@ -61,10 +70,7 @@ namespace SqlT
         private void ParsePdm()
         {
             PdmReaders.Reads(_pdmPath);
-            SqlTools.SavePdmTable();
-            ;
-
-
+            PdmReaders.PdmToList();
         }
 
         /// <summary>
@@ -97,7 +103,6 @@ namespace SqlT
                 MessageAlert.ShowInfo(@"请选择生成SQL类型");
                 return;
             }
-            var pdm = PdmReaders.Pdm;
             var generateSql = string.Empty;
             switch (sqlTypeComb.Text)
             {
@@ -116,6 +121,7 @@ namespace SqlT
             this.pdmResRichBx.Text = generateSql;
             _createTbSql = generateSql;
         }
+
         /// <summary>
         /// 复制
         /// </summary>
@@ -221,6 +227,40 @@ namespace SqlT
             userNameTb.Text = conn.UserName;
             passwordTb.Text = conn.Password;
             dbNameTb.Text = conn.DataBase;
+        }
+
+        /// <summary>
+        /// 将表字段存至数据库
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pdmTbSave_Click(object sender, EventArgs e)
+        {
+            var generateDbConn = SqlDbHelper.GenerateDbConn(dbIpTb.Text, userNameTb.Text, passwordTb.Text, dbNameTb.Text);
+             if(generateDbConn)
+             {
+                var savePdmTable = SqlTools.SavePdmTable();
+                 if (savePdmTable)
+                 {
+                     MessageAlert.ShowInfo(@"执行成功");
+                 }
+             }
+        }
+
+        /// <summary>
+        /// 对比数据库字段
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void compareBtn_Click(object sender, EventArgs e)
+        {
+            var generateDbConn = SqlDbHelper.GenerateDbConn(dbIpTb.Text, userNameTb.Text, passwordTb.Text, dbNameTb.Text);
+            if (generateDbConn)
+            {
+                _createTbSql = SqlTools.CompareTableListSqlServer();
+                this.pdmResRichBx.Text = string.Empty;
+                this.pdmResRichBx.Text = _createTbSql;
+            }
         }
     }
 }
