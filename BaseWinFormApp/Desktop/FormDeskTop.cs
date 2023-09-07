@@ -47,5 +47,15 @@ namespace Desktop
                 MessageBox.Show($@"将在{DateTime.Now.AddSeconds(LessTime):hh:mm:ss}重启");
             }
         }
+
+        /// <summary>
+        /// 软件版本
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void versionBtn_Click(object sender, EventArgs e)
+        {
+            MessageAlert.ShowInfo($"当前软件版本：{Application.ProductVersion}");
+        }
     }
 }

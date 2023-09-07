@@ -30,6 +30,7 @@
         {
             this.shutDownBtn = new System.Windows.Forms.Button();
             this.rebootBtn = new System.Windows.Forms.Button();
+            this.versionBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // shutDownBtn
@@ -52,11 +53,22 @@
             this.rebootBtn.UseVisualStyleBackColor = true;
             this.rebootBtn.Click += new System.EventHandler(this.rebootBtn_Click);
             // 
+            // versionBtn
+            // 
+            this.versionBtn.Location = new System.Drawing.Point(13, 81);
+            this.versionBtn.Name = "versionBtn";
+            this.versionBtn.Size = new System.Drawing.Size(72, 62);
+            this.versionBtn.TabIndex = 2;
+            this.versionBtn.Text = "查看版本";
+            this.versionBtn.UseVisualStyleBackColor = true;
+            this.versionBtn.Click += new System.EventHandler(this.versionBtn_Click);
+            // 
             // FormDeskTop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.versionBtn);
             this.Controls.Add(this.rebootBtn);
             this.Controls.Add(this.shutDownBtn);
             this.Name = "FormDeskTop";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button shutDownBtn;
         private System.Windows.Forms.Button rebootBtn;
+        private System.Windows.Forms.Button versionBtn;
     }
 }
