@@ -26,19 +26,19 @@ public static class SqlTools
     /// SQL Server建表语句
     /// </summary>
     private const string SqlServerCreateTable =
-        "\r\ncreate table {表名} \r\n(\r\n {字段}  \r\n  constraint PK_{表名大写} primary key nonclustered ({主键}) \r\n);";
+        "\r\ncreate table [{表名}] \r\n(\r\n {字段}  \r\n  constraint PK_{表名大写} primary key nonclustered ({主键}) \r\n);";
 
     /// <summary>
     /// PgSQL建表语句
     /// </summary>
     private const string PgSqlCreateTable =
-        "\r\ncreate table {表名}\r\n(\r\n {字段}   \r\n    constraint PK_{表名大写} primary key ({主键})     \r\n);";
+        "\r\ncreate table [{表名}]\r\n(\r\n {字段}   \r\n    constraint PK_{表名大写} primary key ({主键})     \r\n);";
 
     /// <summary>
     /// MySQL建表语句
     /// </summary>
     private const string MySqlCreateTable =
-        "\r\ncreate table {表名}\r\n(\r\n   {字段} \r\n    primary key ({主键})    \r\n);";
+        "\r\ncreate table [{表名}]\r\n(\r\n   {字段} \r\n    primary key ({主键})    \r\n);";
 
     /// <summary>
     /// 插入SQL
@@ -162,6 +162,10 @@ public static class SqlTools
                 if (colUmnDataType.Contains("timestamp"))
                 {
                     colUmnDataType = "datetime";
+                }
+                if (colUmnDataType.Contains("bool") )
+                {
+                    colUmnDataType = "bit";
                 }
                 if (!string.IsNullOrEmpty(columnIdentity) && columnCode.ToLower() == "id")
                 {

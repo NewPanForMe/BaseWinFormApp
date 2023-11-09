@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.selectPdmBtn = new System.Windows.Forms.Button();
-            this.pdmPathLabel = new System.Windows.Forms.Label();
             this.genSqlBtn = new System.Windows.Forms.Button();
             this.sqlTypeComb = new System.Windows.Forms.ComboBox();
             this.pdmResRichBx = new System.Windows.Forms.RichTextBox();
@@ -40,11 +39,13 @@
             this.genClassPath = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.PDMPathTbx = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.compareBtn = new System.Windows.Forms.Button();
             this.execSqlBtn = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.testConnBtn = new System.Windows.Forms.Button();
+            this.sqlConnComBx = new System.Windows.Forms.ComboBox();
             this.passwordTb = new System.Windows.Forms.TextBox();
             this.dbNameTb = new System.Windows.Forms.TextBox();
             this.userNameTb = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.sqlConnComBx = new System.Windows.Forms.ComboBox();
             this.pdmTbSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,24 +63,13 @@
             // 
             // selectPdmBtn
             // 
-            this.selectPdmBtn.Location = new System.Drawing.Point(0, 12);
+            this.selectPdmBtn.Location = new System.Drawing.Point(6, 12);
             this.selectPdmBtn.Name = "selectPdmBtn";
-            this.selectPdmBtn.Size = new System.Drawing.Size(158, 43);
+            this.selectPdmBtn.Size = new System.Drawing.Size(329, 43);
             this.selectPdmBtn.TabIndex = 0;
             this.selectPdmBtn.Text = "选择PDM文件";
             this.selectPdmBtn.UseVisualStyleBackColor = true;
             this.selectPdmBtn.Click += new System.EventHandler(this.selectPdmBtn_Click);
-            // 
-            // pdmPathLabel
-            // 
-            this.pdmPathLabel.AutoSize = true;
-            this.pdmPathLabel.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.pdmPathLabel.Location = new System.Drawing.Point(170, 25);
-            this.pdmPathLabel.Name = "pdmPathLabel";
-            this.pdmPathLabel.Size = new System.Drawing.Size(98, 14);
-            this.pdmPathLabel.TabIndex = 1;
-            this.pdmPathLabel.Text = "请选择PDM文件";
-            this.pdmPathLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // genSqlBtn
             // 
@@ -173,14 +162,23 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.PDMPathTbx);
             this.groupBox2.Controls.Add(this.selectPdmBtn);
-            this.groupBox2.Controls.Add(this.pdmPathLabel);
             this.groupBox2.Location = new System.Drawing.Point(12, 195);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(343, 63);
+            this.groupBox2.Size = new System.Drawing.Size(343, 108);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PDM选择";
+            // 
+            // PDMPathTbx
+            // 
+            this.PDMPathTbx.Location = new System.Drawing.Point(6, 61);
+            this.PDMPathTbx.Multiline = true;
+            this.PDMPathTbx.Name = "PDMPathTbx";
+            this.PDMPathTbx.ReadOnly = true;
+            this.PDMPathTbx.Size = new System.Drawing.Size(329, 36);
+            this.PDMPathTbx.TabIndex = 2;
             // 
             // groupBox3
             // 
@@ -188,9 +186,9 @@
             this.groupBox3.Controls.Add(this.execSqlBtn);
             this.groupBox3.Controls.Add(this.genSqlBtn);
             this.groupBox3.Controls.Add(this.sqlTypeComb);
-            this.groupBox3.Location = new System.Drawing.Point(12, 264);
+            this.groupBox3.Location = new System.Drawing.Point(12, 309);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(343, 161);
+            this.groupBox3.Size = new System.Drawing.Size(343, 116);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "SQL生成区";
@@ -243,6 +241,18 @@
             this.testConnBtn.Text = "测试链接";
             this.testConnBtn.UseVisualStyleBackColor = true;
             this.testConnBtn.Click += new System.EventHandler(this.testConnBtn_Click);
+            // 
+            // sqlConnComBx
+            // 
+            this.sqlConnComBx.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.sqlConnComBx.FormattingEnabled = true;
+            this.sqlConnComBx.ItemHeight = 27;
+            this.sqlConnComBx.Location = new System.Drawing.Point(6, 19);
+            this.sqlConnComBx.Name = "sqlConnComBx";
+            this.sqlConnComBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.sqlConnComBx.Size = new System.Drawing.Size(329, 35);
+            this.sqlConnComBx.TabIndex = 16;
+            this.sqlConnComBx.SelectedIndexChanged += new System.EventHandler(this.sqlConnComBx_Change);
             // 
             // passwordTb
             // 
@@ -312,18 +322,6 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "数据库IP";
             // 
-            // sqlConnComBx
-            // 
-            this.sqlConnComBx.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.sqlConnComBx.FormattingEnabled = true;
-            this.sqlConnComBx.ItemHeight = 27;
-            this.sqlConnComBx.Location = new System.Drawing.Point(6, 19);
-            this.sqlConnComBx.Name = "sqlConnComBx";
-            this.sqlConnComBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.sqlConnComBx.Size = new System.Drawing.Size(329, 35);
-            this.sqlConnComBx.TabIndex = 16;
-            this.sqlConnComBx.SelectedIndexChanged += new System.EventHandler(this.sqlConnComBx_Change);
-            // 
             // pdmTbSave
             // 
             this.pdmTbSave.Location = new System.Drawing.Point(366, 184);
@@ -361,7 +359,6 @@
         #endregion
 
         private System.Windows.Forms.Button selectPdmBtn;
-        private System.Windows.Forms.Label pdmPathLabel;
         private System.Windows.Forms.Button genSqlBtn;
         private System.Windows.Forms.ComboBox sqlTypeComb;
         private System.Windows.Forms.RichTextBox pdmResRichBx;
@@ -387,5 +384,6 @@
         private System.Windows.Forms.ComboBox sqlConnComBx;
         private System.Windows.Forms.Button pdmTbSave;
         private System.Windows.Forms.Button compareBtn;
+        private System.Windows.Forms.TextBox PDMPathTbx;
     }
 }

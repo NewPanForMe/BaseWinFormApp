@@ -35,26 +35,38 @@ public static class GenClassTools
                 var columnId = column.@Id;
                 var colUmnDataType = column.A_DataType.ToLower();
                 var columnMandatory = column.A_Column_Mandatory;
+                var endStr = string.Empty;
                 if (colUmnDataType.Contains("int"))
                 {
                     colUmnDataType = "long";
+                    endStr = "=0;";
                 }
                 else if (colUmnDataType.Contains("varchar"))
                 {
                     colUmnDataType = "string";
+                    endStr = "=string.Empty;";
+
                 }
                 else if (colUmnDataType.Contains("datetime"))
                 {
                     colUmnDataType = "DateTime";
+                    endStr = "=new Datetime(1970,1,1);";
                 }
                 else if (colUmnDataType.Contains("text"))
                 {
                     colUmnDataType = "string";
+                    endStr = "=string.Empty;";
                 }
+                else if (colUmnDataType.Contains("bool"))
+                {
+                    endStr = "=false;";
+                }
+
+
                 columnSql += "  /// <summary>  \r\n ";
                 columnSql += $" /// {columnComment} \r\n ";
                 columnSql += "  /// </summary>  \r\n ";
-                columnSql += $@"  public  {colUmnDataType} {columnCode} " + "  { get; set; }   \r\n";
+                columnSql += $@"  public  {colUmnDataType} {columnCode} " + "  { get; set; }   "+ $"{endStr}" + "\r\n";
             });
             var content = readAllText.Replace("{命名空间}", nameSpace);
             content = content.Replace("{字段}", columnSql);

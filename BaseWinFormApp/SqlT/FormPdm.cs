@@ -60,7 +60,7 @@ namespace SqlT
             }
 
             if (string.IsNullOrEmpty(_pdmPath)) return;
-            pdmPathLabel.Text = _pdmPath;
+            PDMPathTbx.Text = _pdmPath;
             ParsePdm();
         }
 
