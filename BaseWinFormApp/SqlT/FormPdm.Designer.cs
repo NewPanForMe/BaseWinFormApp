@@ -328,7 +328,7 @@
             this.pdmTbSave.Name = "pdmTbSave";
             this.pdmTbSave.Size = new System.Drawing.Size(376, 40);
             this.pdmTbSave.TabIndex = 17;
-            this.pdmTbSave.Text = "执行表字段更新";
+            this.pdmTbSave.Text = "保存表字段";
             this.pdmTbSave.UseVisualStyleBackColor = true;
             this.pdmTbSave.Click += new System.EventHandler(this.pdmTbSave_Click);
             // 

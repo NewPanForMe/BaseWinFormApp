@@ -14,7 +14,7 @@ public static class GenClassTools
     /// </summary>
     /// <param name="pdm"></param>
     /// <param name="nameSpace"></param>
-    /// <param name="filePath"></param>
+    /// <param name="filePath"></param> 
     /// <returns></returns>
     public static void Generate(Pdm pdm, string nameSpace, string filePath)
     {
