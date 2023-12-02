@@ -39,7 +39,6 @@ namespace SqlT
             sqlTypeComb.Items.Add("MySQL");
 
             this.pdmResRichBx.ReadOnly = true;
-            genClassPath.ReadOnly = true;
             RefreshSqlConnComBx();
         }
 
@@ -151,29 +150,9 @@ namespace SqlT
                 MessageAlert.ShowWarning(@"请选择文件位置");
                 return;
             }
-            if (string.IsNullOrEmpty(nameSpaceTbx.Text))
-            {
-                MessageAlert.ShowWarning(@"请输入命名空间");
-                return;
-            }
-            GenClassTools.Generate(pdm, nameSpaceTbx.Text, _generateClassFilePath);
-            Process.Start(_generateClassFilePath);
+           
         }
 
-        /// <summary>
-        /// 选择生成类文件加
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void selectGenClassBtn_Click(object sender, EventArgs e)
-        {
-            var dialog = new FolderBrowserDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                genClassPath.Text = dialog.SelectedPath;
-                _generateClassFilePath = dialog.SelectedPath;
-            }
-        }
 
         /// <summary>
         /// 测试链接

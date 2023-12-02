@@ -32,7 +32,7 @@ public static class SqlTools
     /// PgSQL建表语句
     /// </summary>
     private const string PgSqlCreateTable =
-        "\r\ncreate table [{表名}]\r\n(\r\n {字段}   \r\n    constraint PK_{表名大写} primary key ({主键})     \r\n);";
+        "\r\ncreate table {表名}\r\n(\r\n {字段}   \r\n    constraint PK_{表名大写} primary key ({主键})     \r\n); \r\n \r\n";
 
     /// <summary>
     /// MySQL建表语句
@@ -74,6 +74,18 @@ public static class SqlTools
     /// 上次存储的signcode
     /// </summary>
     private const string PdmTableListSignCodeFile = "./PdmTableSignCode.txt";
+
+    /// <summary>
+    /// pgsql修改字段首字母大写的sql
+    /// </summary>
+    public const string PgSqlUpdateTableAttrFirstCharUpper = "ALTER TABLE public.{表名} RENAME COLUMN {旧列名} TO \"{新列名}\";\r\n \r\n ";
+
+    /// <summary>
+    /// pgsql修改表首字母大写的sql
+    /// </summary>
+    public const string PgSqlUpdateTableNameFirstCharUpper = "ALTER TABLE public.{表名} RENAME TO \"{新表名}\"; \r\n \r\n ";
+
+
 
 
     /// <summary>
@@ -163,7 +175,7 @@ public static class SqlTools
                 {
                     colUmnDataType = "datetime";
                 }
-                if (colUmnDataType.Contains("bool") )
+                if (colUmnDataType.Contains("bool"))
                 {
                     colUmnDataType = "bit";
                 }
@@ -194,6 +206,7 @@ public static class SqlTools
     {
         InitList();
         var sql = new StringBuilder();
+
         TableList.ForEach(table =>
         {
             var tableName = table.Name;
@@ -202,7 +215,7 @@ public static class SqlTools
             var tablePkCode = table.PkCode;
 
             var columnSql = string.Empty;
-            var tableSql = SqlServerCreateTable.Replace("{表名}", tableCode);
+            var tableSql = PgSqlCreateTable.Replace("{表名}", tableCode);
             tableSql = tableSql.Replace("{表名大写}", tableCode.ToUpper());
             tableSql = tableSql.Replace("{表注释}", tableComment);
             tableSql = tableSql.Replace("{主键}", tablePkCode);
@@ -227,9 +240,30 @@ public static class SqlTools
                     columnSql = $@"{columnCode}  SERIAL   not null ," + " \r\n";
                 }
 
+                //首字母
+                var firstChar = columnCode.Substring(0, 1);
+                //除了首字母意外的字母
+                var lastChar = columnCode.Substring(1, columnCode.Length-1);
+                // "ALTER TABLE public.{表名} RENAME COLUMN {旧列名} TO \"{新列名}\";";
+                var updateTableAttrFirstCharUpper = PgSqlUpdateTableAttrFirstCharUpper.Replace("{表名}", tableCode.ToLower());
+                updateTableAttrFirstCharUpper = updateTableAttrFirstCharUpper.Replace("{旧列名}", columnCode.ToLower());
+                updateTableAttrFirstCharUpper = updateTableAttrFirstCharUpper.Replace("{新列名}", firstChar.ToUpper()+lastChar);
+                sql.Append(updateTableAttrFirstCharUpper);
+
             });
             tableSql = tableSql.Replace("{字段}", columnSql);
             sql.Append(tableSql);
+
+            //首字母
+            var firstTableChar = tableCode.Substring(0, 1);
+            //除了首字母意外的字母
+            var lastTableChar = tableCode.Substring(1, tableCode.Length - 1);
+            // ALTER TABLE public.{表名} RENAME TO \"{新表名}\"
+            tableSql = PgSqlUpdateTableNameFirstCharUpper.Replace("{表名}", tableCode.ToLower());
+            tableSql = tableSql.Replace("{新表名}", firstTableChar.ToUpper() + lastTableChar);
+
+            sql.Append(tableSql);
+
         });
         return sql.ToString();
     }
