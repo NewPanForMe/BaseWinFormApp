@@ -42,6 +42,7 @@
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统当前信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.pDM转ClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +114,8 @@
             // 
             this.sQLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.PDM处理ToolStripMenuItem,
-            this.连接测试ToolStripMenuItem});
+            this.连接测试ToolStripMenuItem,
+            this.pDM转ClassToolStripMenuItem});
             this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
             this.sQLToolStripMenuItem.ShortcutKeyDisplayString = "S";
             this.sQLToolStripMenuItem.Size = new System.Drawing.Size(43, 21);
@@ -145,7 +147,7 @@
             // 系统当前信息ToolStripMenuItem
             // 
             this.系统当前信息ToolStripMenuItem.Name = "系统当前信息ToolStripMenuItem";
-            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.系统当前信息ToolStripMenuItem.Text = "系统当前信息";
             this.系统当前信息ToolStripMenuItem.Click += new System.EventHandler(this.系统当前信息ToolStripMenuItem_Click);
             // 
@@ -160,6 +162,13 @@
             this.toolStripContainer1.Size = new System.Drawing.Size(800, 439);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // pDM转ClassToolStripMenuItem
+            // 
+            this.pDM转ClassToolStripMenuItem.Name = "pDM转ClassToolStripMenuItem";
+            this.pDM转ClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pDM转ClassToolStripMenuItem.Text = "PDM转Class";
+            this.pDM转ClassToolStripMenuItem.Click += new System.EventHandler(this.pDM转ClassToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -196,5 +205,6 @@
         private System.Windows.Forms.ToolStripMenuItem 文件读取ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 首页ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 连接测试ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pDM转ClassToolStripMenuItem;
     }
 }

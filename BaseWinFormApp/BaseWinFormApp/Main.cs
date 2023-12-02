@@ -124,5 +124,17 @@ namespace BaseWinFormApp
             AddToolStrip(form);
             form.Show();
         }
+
+        private void pDM转ClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormClass()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            AddToolStrip(form);
+            form.Show();
+        }
     }
 }

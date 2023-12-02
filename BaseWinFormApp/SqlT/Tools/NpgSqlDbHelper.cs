@@ -1,28 +1,26 @@
-﻿using System;
+﻿using Public.Alert;
+using SqlT.Models;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
+using System.Data;
+using System;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 using Dapper;
-using Public.Alert;
-using SqlT.Models;
+using Npgsql;
 using Ys.Tools.MoreTool;
 
 namespace SqlT.Tools;
 
-public static  class SqlDbHelper
+public static class NpgSqlDbHelper
 {
     private static string _connString;
-    private const string SqlConnStringPath = "./SqlConnStrings.json";
-    private static SqlConnection _conn;
+    private static NpgsqlConnection _conn;
 
     /// <summary>
     /// 生成SQL链接字符串
     /// </summary>
-    public static bool GenerateDbConn(string ip, string userName, string password, string db)
+    public static bool GenerateDbConn(string ip, string userName, string password, string db,string port)
     {
         if (string.IsNullOrEmpty(ip))
         {
@@ -48,42 +46,10 @@ public static  class SqlDbHelper
             return false;
         }
 
-        _connString = @$"server={ip};database={db};user id={userName};password={password};TrustServerCertificate=true";
-
+        _connString = @$"HOST={ip};DATABASE={db};Username={userName};PASSWORD={password};Port={port}";
         return true;
     }
-    /// <summary>
-    /// 生成Json文件
-    /// </summary>
-    /// <param name="ip"></param>
-    /// <param name="userName"></param>
-    /// <param name="password"></param>
-    /// <param name="db"></param>
-    /// <param name="port"></param>
-    public static void GenerateJsonFile(string ip, string userName, string password, string db,string port)
-    {
-        var generateDbConnSelect = GenerateDbConnSelect();
-        var firstOrDefault = generateDbConnSelect.FirstOrDefault(x => x.Ip == ip && x.DataBase == db);
-        if (firstOrDefault == null)
-        {
-            var sqlConn = new SqlConn() { DataBase = db, Ip = ip, Password = password, UserName = userName,Port =port };
-            generateDbConnSelect.Add(sqlConn);
-            var serialize = JsonTools.Serialize(generateDbConnSelect);
-            File.Delete(SqlConnStringPath);
-            File.AppendAllText(SqlConnStringPath, serialize);
-        }
-    }
-    /// <summary>
-    /// 生成数据库链接字符串
-    /// </summary>
-    public static List<SqlConn> GenerateDbConnSelect()
-    {
-        var sqlConnString = File.ReadAllText(SqlConnStringPath);
-        if (string.IsNullOrEmpty(sqlConnString)) return new List<SqlConn>();
-        var sqlConnList = JsonTools.Deserialize<List<SqlConn>>(sqlConnString);
-        return sqlConnList;
 
-    }
     /// <summary>
     /// 测试链接
     /// </summary>
@@ -115,7 +81,7 @@ public static  class SqlDbHelper
     /// </summary>
     private static void OpenConn()
     {
-        _conn = new SqlConnection(_connString);
+        _conn = new (_connString);
         _conn.Open();
     }
 
@@ -133,7 +99,7 @@ public static  class SqlDbHelper
     /// </summary>
     /// <param name="sql"></param>
     /// <param name="isTran">是否开启事务</param>
-    public static int Execute(string sql,bool isTran=false)
+    public static int Execute(string sql, bool isTran = false)
     {
         IDbTransaction transaction = null;
         try
@@ -143,7 +109,7 @@ public static  class SqlDbHelper
             {
                 transaction = _conn.BeginTransaction();
             }
-            var res = _conn.Execute(sql,null, transaction);
+            var res = _conn.Execute(sql, null, transaction);
             transaction?.Commit();
             return res;
         }

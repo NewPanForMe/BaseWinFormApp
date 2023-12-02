@@ -336,7 +336,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 437);
+            this.ClientSize = new System.Drawing.Size(764, 437);
             this.Controls.Add(this.pdmTbSave);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.pdmResRichBx);
