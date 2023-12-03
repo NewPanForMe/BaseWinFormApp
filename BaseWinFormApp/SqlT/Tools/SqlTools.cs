@@ -263,6 +263,7 @@ public static class SqlTools
             tableSql = tableSql.Replace("{新表名}", firstTableChar.ToUpper() + lastTableChar);
 
             sql.Append(tableSql);
+            sql.Append($"--===⬆️==={tableCode}====⬆️==="+"\r\n");
 
         });
         return sql.ToString();
