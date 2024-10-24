@@ -51,7 +51,7 @@
             // 
             this.BtnSelectDic.Location = new System.Drawing.Point(333, 12);
             this.BtnSelectDic.Name = "BtnSelectDic";
-            this.BtnSelectDic.Size = new System.Drawing.Size(177, 49);
+            this.BtnSelectDic.Size = new System.Drawing.Size(177, 26);
             this.BtnSelectDic.TabIndex = 1;
             this.BtnSelectDic.Text = "选择Git文件夹";
             this.BtnSelectDic.UseVisualStyleBackColor = true;
@@ -59,7 +59,7 @@
             // 
             // BtnClone
             // 
-            this.BtnClone.Location = new System.Drawing.Point(12, 154);
+            this.BtnClone.Location = new System.Drawing.Point(12, 176);
             this.BtnClone.Name = "BtnClone";
             this.BtnClone.Size = new System.Drawing.Size(81, 79);
             this.BtnClone.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             // TbCloneGit
             // 
-            this.TbCloneGit.Location = new System.Drawing.Point(12, 79);
+            this.TbCloneGit.Location = new System.Drawing.Point(12, 101);
             this.TbCloneGit.Multiline = true;
             this.TbCloneGit.Name = "TbCloneGit";
             this.TbCloneGit.Size = new System.Drawing.Size(498, 26);
@@ -77,7 +77,7 @@
             // 
             // BtnPull
             // 
-            this.BtnPull.Location = new System.Drawing.Point(137, 154);
+            this.BtnPull.Location = new System.Drawing.Point(137, 176);
             this.BtnPull.Name = "BtnPull";
             this.BtnPull.Size = new System.Drawing.Size(81, 79);
             this.BtnPull.TabIndex = 4;
@@ -87,7 +87,7 @@
             // 
             // BtnCommit
             // 
-            this.BtnCommit.Location = new System.Drawing.Point(268, 154);
+            this.BtnCommit.Location = new System.Drawing.Point(268, 176);
             this.BtnCommit.Name = "BtnCommit";
             this.BtnCommit.Size = new System.Drawing.Size(81, 79);
             this.BtnCommit.TabIndex = 5;
@@ -97,7 +97,7 @@
             // 
             // TbCommit
             // 
-            this.TbCommit.Location = new System.Drawing.Point(112, 122);
+            this.TbCommit.Location = new System.Drawing.Point(112, 144);
             this.TbCommit.Multiline = true;
             this.TbCommit.Name = "TbCommit";
             this.TbCommit.Size = new System.Drawing.Size(398, 26);
@@ -105,7 +105,7 @@
             // 
             // BtnPush
             // 
-            this.BtnPush.Location = new System.Drawing.Point(391, 154);
+            this.BtnPush.Location = new System.Drawing.Point(391, 176);
             this.BtnPush.Name = "BtnPush";
             this.BtnPush.Size = new System.Drawing.Size(81, 79);
             this.BtnPush.TabIndex = 7;
@@ -115,10 +115,11 @@
             // 
             // CBGitDic
             // 
+            this.CBGitDic.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.CBGitDic.FormattingEnabled = true;
             this.CBGitDic.Location = new System.Drawing.Point(12, 44);
             this.CBGitDic.Name = "CBGitDic";
-            this.CBGitDic.Size = new System.Drawing.Size(315, 20);
+            this.CBGitDic.Size = new System.Drawing.Size(498, 41);
             this.CBGitDic.TabIndex = 8;
             // 
             // Git

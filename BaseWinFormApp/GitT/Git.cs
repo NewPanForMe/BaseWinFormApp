@@ -17,8 +17,12 @@ namespace GitT
         {
             InitializeComponent();
             TBGitFolder.ReadOnly=true;
+            CBGitDic.DropDownStyle = ComboBoxStyle.DropDownList;
             GitTools.GetList();
-            CBGitDic.DataSource = GitTools.ListGitFileFolder;
+            GitTools.ListGitFileFolder.ForEach(x =>
+            {
+                CBGitDic.Items.Add(x.Dic);
+            });
         }
 
         private void BtnSelectDic_Click(object sender, EventArgs e)
