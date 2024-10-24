@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desktop", "Desktop\Desktop.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Public", "Public\Public.csproj", "{12A029ED-A2E4-4A07-8B62-8A0D4666A751}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitT", "GitT\GitT.csproj", "{2FD330B9-C90C-46A5-ABAA-24C0BD720EF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{12A029ED-A2E4-4A07-8B62-8A0D4666A751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12A029ED-A2E4-4A07-8B62-8A0D4666A751}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12A029ED-A2E4-4A07-8B62-8A0D4666A751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD330B9-C90C-46A5-ABAA-24C0BD720EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD330B9-C90C-46A5-ABAA-24C0BD720EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD330B9-C90C-46A5-ABAA-24C0BD720EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD330B9-C90C-46A5-ABAA-24C0BD720EF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

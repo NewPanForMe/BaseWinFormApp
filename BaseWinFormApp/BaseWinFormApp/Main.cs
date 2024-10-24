@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Desktop;
 using FileT;
+using GitT;
 using SqlT;
 using SysT;
 using TimerT;
@@ -128,6 +129,18 @@ namespace BaseWinFormApp
         private void pDM转ClassToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new FormClass()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            AddToolStrip(form);
+            form.Show();
+        }
+
+        private void git操作ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Git()
             {
                 TopLevel = false,
                 Dock = DockStyle.Fill,

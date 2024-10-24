@@ -227,6 +227,10 @@
       <Project>{68360e4e-4033-46c8-9239-26968cef6583}</Project>
       <Name>FileT</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GitT\GitT.csproj">
+      <Project>{2fd330b9-c90c-46a5-abaa-24c0bd720ef0}</Project>
+      <Name>GitT</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SqlT\SqlT.csproj">
       <Project>{61a56a7d-caed-4387-91da-d2166bac224f}</Project>
       <Name>SqlT</Name>

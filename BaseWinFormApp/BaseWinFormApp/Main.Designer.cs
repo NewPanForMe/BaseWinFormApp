@@ -39,10 +39,12 @@
             this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PDM处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.连接测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pDM转ClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统当前信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.pDM转ClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.git操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +56,8 @@
             this.文件操作ToolStripMenuItem,
             this.时间操作ToolStripMenuItem,
             this.sQLToolStripMenuItem,
-            this.系统ToolStripMenuItem});
+            this.系统ToolStripMenuItem,
+            this.gitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(801, 25);
@@ -82,14 +85,14 @@
             // 
             this.文件遍历ToolStripMenuItem.Name = "文件遍历ToolStripMenuItem";
             this.文件遍历ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.文件遍历ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.文件遍历ToolStripMenuItem.Text = "文件遍历";
             this.文件遍历ToolStripMenuItem.Click += new System.EventHandler(this.文件遍历ToolStripMenuItem_Click);
             // 
             // 文件读取ToolStripMenuItem
             // 
             this.文件读取ToolStripMenuItem.Name = "文件读取ToolStripMenuItem";
-            this.文件读取ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.文件读取ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.文件读取ToolStripMenuItem.Text = "文件读取";
             this.文件读取ToolStripMenuItem.Click += new System.EventHandler(this.文件读取ToolStripMenuItem_Click);
             // 
@@ -106,7 +109,7 @@
             // 
             this.计时器ToolStripMenuItem.Name = "计时器ToolStripMenuItem";
             this.计时器ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.计时器ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.计时器ToolStripMenuItem.Text = "计时器";
             this.计时器ToolStripMenuItem.Click += new System.EventHandler(this.计时器ToolStripMenuItem_Click);
             // 
@@ -136,6 +139,13 @@
             this.连接测试ToolStripMenuItem.Text = "连接测试";
             this.连接测试ToolStripMenuItem.Click += new System.EventHandler(this.连接测试ToolStripMenuItem_Click);
             // 
+            // pDM转ClassToolStripMenuItem
+            // 
+            this.pDM转ClassToolStripMenuItem.Name = "pDM转ClassToolStripMenuItem";
+            this.pDM转ClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pDM转ClassToolStripMenuItem.Text = "PDM转Class";
+            this.pDM转ClassToolStripMenuItem.Click += new System.EventHandler(this.pDM转ClassToolStripMenuItem_Click);
+            // 
             // 系统ToolStripMenuItem
             // 
             this.系统ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -147,7 +157,7 @@
             // 系统当前信息ToolStripMenuItem
             // 
             this.系统当前信息ToolStripMenuItem.Name = "系统当前信息ToolStripMenuItem";
-            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.系统当前信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.系统当前信息ToolStripMenuItem.Text = "系统当前信息";
             this.系统当前信息ToolStripMenuItem.Click += new System.EventHandler(this.系统当前信息ToolStripMenuItem_Click);
             // 
@@ -163,12 +173,20 @@
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
-            // pDM转ClassToolStripMenuItem
+            // gitToolStripMenuItem
             // 
-            this.pDM转ClassToolStripMenuItem.Name = "pDM转ClassToolStripMenuItem";
-            this.pDM转ClassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pDM转ClassToolStripMenuItem.Text = "PDM转Class";
-            this.pDM转ClassToolStripMenuItem.Click += new System.EventHandler(this.pDM转ClassToolStripMenuItem_Click);
+            this.gitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.git操作ToolStripMenuItem});
+            this.gitToolStripMenuItem.Name = "gitToolStripMenuItem";
+            this.gitToolStripMenuItem.Size = new System.Drawing.Size(36, 21);
+            this.gitToolStripMenuItem.Text = "Git";
+            // 
+            // git操作ToolStripMenuItem
+            // 
+            this.git操作ToolStripMenuItem.Name = "git操作ToolStripMenuItem";
+            this.git操作ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.git操作ToolStripMenuItem.Text = "Git操作";
+            this.git操作ToolStripMenuItem.Click += new System.EventHandler(this.git操作ToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -206,5 +224,7 @@
         private System.Windows.Forms.ToolStripMenuItem 首页ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 连接测试ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pDM转ClassToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem git操作ToolStripMenuItem;
     }
 }
