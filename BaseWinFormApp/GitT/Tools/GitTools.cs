@@ -20,7 +20,7 @@ namespace GitT.Tools
         /// <summary>
         /// 
         /// </summary>
-        public static List<string> ListGitFileFolder=new List<string>();
+        public static List<ListGitDic> ListGitFileFolder=new List<ListGitDic>();
         public static Process process=null;
 
 
@@ -101,17 +101,24 @@ namespace GitT.Tools
         {
             var gitFileFolderJson = File.ReadAllText(GitFileFolderJson);
             if(string.IsNullOrWhiteSpace(gitFileFolderJson))return;
-            ListGitFileFolder = JsonConvert.DeserializeObject<List<string>>(gitFileFolderJson);
+            ListGitFileFolder = JsonConvert.DeserializeObject<List<ListGitDic>>(gitFileFolderJson);
         }
 
         public static void Add()
         {
-            if (!ListGitFileFolder.Exists(x=>x== GitFileFolder)) ListGitFileFolder.Add(GitFileFolder);
+            var dic = new ListGitDic(){Dic= GitFileFolder };
+            if (!ListGitFileFolder.Exists(x=>x.Dic==dic.Dic)) ListGitFileFolder.Add(dic);
             var serialize = JsonConvert.SerializeObject(ListGitFileFolder);
             File.AppendAllText(GitFileFolderJson,serialize);
         }
 
 
 
+    }
+
+
+    public class ListGitDic
+    { 
+        public string Dic { get; set; }
     }
 }
