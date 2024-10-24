@@ -37,6 +37,8 @@
             this.TbCommit = new System.Windows.Forms.TextBox();
             this.BtnPush = new System.Windows.Forms.Button();
             this.CBGitDic = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TBGitFolder
@@ -69,10 +71,10 @@
             // 
             // TbCloneGit
             // 
-            this.TbCloneGit.Location = new System.Drawing.Point(12, 101);
+            this.TbCloneGit.Location = new System.Drawing.Point(112, 101);
             this.TbCloneGit.Multiline = true;
             this.TbCloneGit.Name = "TbCloneGit";
-            this.TbCloneGit.Size = new System.Drawing.Size(498, 26);
+            this.TbCloneGit.Size = new System.Drawing.Size(398, 26);
             this.TbCloneGit.TabIndex = 3;
             // 
             // BtnPull
@@ -121,12 +123,33 @@
             this.CBGitDic.Name = "CBGitDic";
             this.CBGitDic.Size = new System.Drawing.Size(498, 41);
             this.CBGitDic.TabIndex = 8;
+            this.CBGitDic.SelectedIndexChanged += new System.EventHandler(this.CBGitDic_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 12);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Git克隆链接";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 12);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Git提交备注";
             // 
             // Git
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 296);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.CBGitDic);
             this.Controls.Add(this.BtnPush);
             this.Controls.Add(this.TbCommit);
@@ -154,5 +177,7 @@
         private System.Windows.Forms.TextBox TbCommit;
         private System.Windows.Forms.Button BtnPush;
         private System.Windows.Forms.ComboBox CBGitDic;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 
 namespace GitT.Tools
@@ -29,6 +30,11 @@ namespace GitT.Tools
         /// </summary>
         public static void Init()
         {
+            if (string.IsNullOrWhiteSpace(GitFileFolder))
+            {
+                MessageBox.Show(@"请选择Git文件夹");
+                return;
+            }
             process = new Process();
             process.StartInfo.WorkingDirectory = GitFileFolder;
             process.StartInfo.FileName = "cmd.exe ";

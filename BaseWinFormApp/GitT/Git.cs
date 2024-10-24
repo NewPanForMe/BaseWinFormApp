@@ -16,7 +16,7 @@ namespace GitT
         public Git()
         {
             InitializeComponent();
-            TBGitFolder.ReadOnly=true;
+            TBGitFolder.ReadOnly = true;
             CBGitDic.DropDownStyle = ComboBoxStyle.DropDownList;
             GitTools.GetList();
             GitTools.ListGitFileFolder.ForEach(x =>
@@ -31,13 +31,23 @@ namespace GitT
             if (dialog.ShowDialog() != DialogResult.OK) return;
             TBGitFolder.Text = dialog.SelectedPath;
             GitTools.GitFileFolder = dialog.SelectedPath;
+
             GitTools.Add();
             GitTools.GetList();
+            GitTools.ListGitFileFolder.ForEach(x =>
+            {
+                CBGitDic.Items.Add(x.Dic);
+            });
         }
 
         private void BtnClone_Click(object sender, EventArgs e)
         {
             var cloneUrl = TbCloneGit.Text;
+            if (string.IsNullOrWhiteSpace(cloneUrl))
+            {
+                MessageBox.Show(@"Git克隆链接为空");
+                return;
+            }
 
             GitTools.Clone(cloneUrl);
             TbCloneGit.Text = string.Empty;
@@ -46,7 +56,7 @@ namespace GitT
 
         private void BtnPull_Click(object sender, EventArgs e)
         {
-            GitTools.Pull( );
+            GitTools.Pull();
             MessageBox.Show($@"Pull成功");
 
         }
@@ -54,6 +64,12 @@ namespace GitT
         private void BtnCommit_Click(object sender, EventArgs e)
         {
             var commit = TbCommit.Text;
+            if (string.IsNullOrWhiteSpace(commit))
+            {
+                MessageBox.Show(@"Git提交备注为空");
+                return;
+            }
+
             GitTools.Commit(commit);
             TbCommit.Text = string.Empty;
             MessageBox.Show($@"提交成功");
@@ -65,6 +81,12 @@ namespace GitT
         {
             GitTools.Push();
             MessageBox.Show($@"Push成功");
+        }
+
+        private void CBGitDic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TBGitFolder.Text = CBGitDic.Text;
+            GitTools.GitFileFolder = CBGitDic.Text;
         }
     }
 }
