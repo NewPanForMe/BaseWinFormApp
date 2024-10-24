@@ -36,6 +36,7 @@
             this.BtnCommit = new System.Windows.Forms.Button();
             this.TbCommit = new System.Windows.Forms.TextBox();
             this.BtnPush = new System.Windows.Forms.Button();
+            this.CBGitDic = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TBGitFolder
@@ -112,11 +113,20 @@
             this.BtnPush.UseVisualStyleBackColor = true;
             this.BtnPush.Click += new System.EventHandler(this.BtnPush_Click);
             // 
+            // CBGitDic
+            // 
+            this.CBGitDic.FormattingEnabled = true;
+            this.CBGitDic.Location = new System.Drawing.Point(12, 44);
+            this.CBGitDic.Name = "CBGitDic";
+            this.CBGitDic.Size = new System.Drawing.Size(315, 20);
+            this.CBGitDic.TabIndex = 8;
+            // 
             // Git
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 296);
+            this.Controls.Add(this.CBGitDic);
             this.Controls.Add(this.BtnPush);
             this.Controls.Add(this.TbCommit);
             this.Controls.Add(this.BtnCommit);
@@ -142,5 +152,6 @@
         private System.Windows.Forms.Button BtnCommit;
         private System.Windows.Forms.TextBox TbCommit;
         private System.Windows.Forms.Button BtnPush;
+        private System.Windows.Forms.ComboBox CBGitDic;
     }
 }

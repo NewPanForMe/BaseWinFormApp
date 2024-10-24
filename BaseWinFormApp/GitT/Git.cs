@@ -17,6 +17,8 @@ namespace GitT
         {
             InitializeComponent();
             TBGitFolder.ReadOnly=true;
+            GitTools.GetList();
+            CBGitDic.DataSource = GitTools.ListGitFileFolder;
         }
 
         private void BtnSelectDic_Click(object sender, EventArgs e)
@@ -25,6 +27,8 @@ namespace GitT
             if (dialog.ShowDialog() != DialogResult.OK) return;
             TBGitFolder.Text = dialog.SelectedPath;
             GitTools.GitFileFolder = dialog.SelectedPath;
+            GitTools.Add();
+            GitTools.GetList();
         }
 
         private void BtnClone_Click(object sender, EventArgs e)

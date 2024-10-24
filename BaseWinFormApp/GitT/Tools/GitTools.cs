@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Text.Json;
 
 namespace GitT.Tools
 {
@@ -9,6 +12,15 @@ namespace GitT.Tools
         /// git文件夹
         /// </summary>
         public static string GitFileFolder=string.Empty;
+        /// <summary>
+        /// git文件夹json
+        /// </summary>
+        public static string GitFileFolderJson = "./Template/GitDic.json";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static List<string> ListGitFileFolder=new List<string>();
         public static Process process=null;
 
 
@@ -65,7 +77,6 @@ namespace GitT.Tools
             process.StandardInput.WriteLine($" git add  . ");
             process.StandardInput.WriteLine($" git commit -m {commit} ");
             process.StandardInput.AutoFlush = true;
-
             process.Close();
         }
 
@@ -79,9 +90,30 @@ namespace GitT.Tools
             //向cmd窗口写入命令
             process.StandardInput.WriteLine($" git push ");
             process.StandardInput.AutoFlush = true;
-            process.WaitForExit();
             process.Close();
 
         }
+
+        /// <summary>
+        /// 获得Json
+        /// </summary>
+        public static void GetList()
+        {
+            var gitFileFolderJson = File.ReadAllText(GitFileFolderJson);
+            if(string.IsNullOrWhiteSpace(gitFileFolderJson))return;
+            ListGitFileFolder = JsonSerializer.Deserialize<List<string>>(gitFileFolderJson);
+        }
+
+        public static void Add()
+        {
+            ListGitFileFolder.Add(GitFileFolder);
+            var serialize = JsonSerializer.Serialize(ListGitFileFolder);
+
+            File.AppendAllText(GitFileFolderJson,serialize);
+
+        }
+
+
+
     }
 }
