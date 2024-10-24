@@ -56,8 +56,6 @@ namespace GitT.Tools
             process.StandardInput.WriteLine($" git pull ");
             process.StandardInput.AutoFlush = true;
 
-            //获取cmd窗口的输出信息
-            string output = process.StandardOutput.ReadToEnd();
             process.WaitForExit();//等待程序执行完退出进程
             process.Close();
         }
@@ -74,8 +72,6 @@ namespace GitT.Tools
             process.StandardInput.WriteLine($" git commit -m {commit} ");
             process.StandardInput.AutoFlush = true;
 
-            //获取cmd窗口的输出信息
-            string output = process.StandardOutput.ReadToEnd();
             process.WaitForExit();//等待程序执行完退出进程
             process.Close();
         }
@@ -88,13 +84,12 @@ namespace GitT.Tools
             Init();
             process.Start();
             //向cmd窗口写入命令
-            process.StandardInput.WriteLine($" git pull ");
+            process.StandardInput.WriteLine($" git push ");
             process.StandardInput.AutoFlush = true;
 
-            //获取cmd窗口的输出信息
-            string output = process.StandardOutput.ReadToEnd();
             process.WaitForExit();//等待程序执行完退出进程
             process.Close();
+
         }
     }
 }
