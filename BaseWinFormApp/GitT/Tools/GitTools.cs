@@ -109,11 +109,9 @@ namespace GitT.Tools
             var dic = new ListGitDic(){Dic= GitFileFolder };
             if (!ListGitFileFolder.Exists(x=>x.Dic==dic.Dic)) ListGitFileFolder.Add(dic);
             var serialize = JsonConvert.SerializeObject(ListGitFileFolder);
-            File.AppendAllText(GitFileFolderJson,"");
+            File.Delete(GitFileFolderJson);
             File.AppendAllText(GitFileFolderJson,serialize);
         }
-
-
 
     }
 
