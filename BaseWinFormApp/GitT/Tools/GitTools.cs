@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace GitT.Tools
 {
@@ -101,16 +101,14 @@ namespace GitT.Tools
         {
             var gitFileFolderJson = File.ReadAllText(GitFileFolderJson);
             if(string.IsNullOrWhiteSpace(gitFileFolderJson))return;
-            ListGitFileFolder = JsonSerializer.Deserialize<List<string>>(gitFileFolderJson);
+            ListGitFileFolder = JsonConvert.DeserializeObject<List<string>>(gitFileFolderJson);
         }
 
         public static void Add()
         {
-            ListGitFileFolder.Add(GitFileFolder);
-            var serialize = JsonSerializer.Serialize(ListGitFileFolder);
-
+            if (!ListGitFileFolder.Exists(x=>x== GitFileFolder)) ListGitFileFolder.Add(GitFileFolder);
+            var serialize = JsonConvert.SerializeObject(ListGitFileFolder);
             File.AppendAllText(GitFileFolderJson,serialize);
-
         }
 
 
