@@ -50,15 +50,20 @@ namespace GitT
                 WriteLogs("Git克隆链接为空");
                 return;
             }
-
+            if (!cloneUrl.Contains("git"))
+            {
+                WriteLogs("请检查Git链接");
+                return;
+            }
+            WriteLogs($"克隆{cloneUrl}中");
             GitTools.Clone(cloneUrl);
             TbCloneGit.Text = string.Empty;
             WriteLogs("克隆成功");
-
         }
 
         private void BtnPull_Click(object sender, EventArgs e)
         {
+            WriteLogs("正在执行Pull");
             GitTools.Pull();
             WriteLogs("Pull成功");
 
@@ -73,7 +78,7 @@ namespace GitT
 
                 return;
             }
-
+            WriteLogs("正在执行commit");
             GitTools.Commit(commit);
             TbCommit.Text = string.Empty;
             WriteLogs("提交成功");
@@ -83,6 +88,8 @@ namespace GitT
 
         private void BtnPush_Click(object sender, EventArgs e)
         {
+            WriteLogs("正在执行Push");
+
             GitTools.Push();
             WriteLogs("Push成功");
 
