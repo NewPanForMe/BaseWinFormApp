@@ -17,6 +17,7 @@ namespace GitT
         {
             InitializeComponent();
             TBGitFolder.ReadOnly = true;
+            RTBLogs.ReadOnly = true;
             CBGitDic.DropDownStyle = ComboBoxStyle.DropDownList;
             GitTools.GetList();
             GitTools.ListGitFileFolder.ForEach(x =>
@@ -97,7 +98,7 @@ namespace GitT
 
         void WriteLogs(string log)
         {
-            RTBLogs.AppendText($"{DateTime.Now:yyyy-MM-dd HH:mm:ss}-{log} \n");
+            RTBLogs.AppendText($"{DateTime.Now:yyyy-MM-dd HH:mm:ss}-{log} ... \n");
 
         }
     }
