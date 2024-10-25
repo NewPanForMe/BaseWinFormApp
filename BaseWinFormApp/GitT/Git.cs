@@ -23,6 +23,7 @@ namespace GitT
             {
                 CBGitDic.Items.Add(x.Dic);
             });
+            WriteLogs("加载成功");
         }
 
         private void BtnSelectDic_Click(object sender, EventArgs e)
@@ -45,19 +46,20 @@ namespace GitT
             var cloneUrl = TbCloneGit.Text;
             if (string.IsNullOrWhiteSpace(cloneUrl))
             {
-                MessageBox.Show(@"Git克隆链接为空");
+                WriteLogs("Git克隆链接为空");
                 return;
             }
 
             GitTools.Clone(cloneUrl);
             TbCloneGit.Text = string.Empty;
-            MessageBox.Show($@"克隆成功");
+            WriteLogs("克隆成功");
+
         }
 
         private void BtnPull_Click(object sender, EventArgs e)
         {
             GitTools.Pull();
-            MessageBox.Show($@"Pull成功");
+            WriteLogs("Pull成功");
 
         }
 
@@ -66,13 +68,14 @@ namespace GitT
             var commit = TbCommit.Text;
             if (string.IsNullOrWhiteSpace(commit))
             {
-                MessageBox.Show(@"Git提交备注为空");
+                WriteLogs("Git提交备注为空");
+
                 return;
             }
 
             GitTools.Commit(commit);
             TbCommit.Text = string.Empty;
-            MessageBox.Show($@"提交成功");
+            WriteLogs("提交成功");
 
         }
 
@@ -80,13 +83,22 @@ namespace GitT
         private void BtnPush_Click(object sender, EventArgs e)
         {
             GitTools.Push();
-            MessageBox.Show($@"Push成功");
+            WriteLogs("Push成功");
+
         }
 
         private void CBGitDic_SelectedIndexChanged(object sender, EventArgs e)
         {
             TBGitFolder.Text = CBGitDic.Text;
             GitTools.GitFileFolder = CBGitDic.Text;
+        }
+
+
+
+        void WriteLogs(string log)
+        {
+            RTBLogs.AppendText($"{DateTime.Now:yyyy-MM-dd HH:mm:ss}-{log} \n");
+
         }
     }
 }

@@ -77,6 +77,7 @@ namespace GitT.Tools
         /// <param name="commit">提交备注</param>
         public static void Commit(string commit)
         {
+            GitAddDot();
             Init();
             process.Start();
             //向cmd窗口写入命令
@@ -85,7 +86,18 @@ namespace GitT.Tools
             process.StandardInput.AutoFlush = true;
             process.Close();
         }
-
+        /// <summary>
+        /// 提交
+        /// </summary>
+         static void GitAddDot()
+        {
+            Init();
+            process.Start();
+            //向cmd窗口写入命令
+            process.StandardInput.WriteLine($" git add  . ");
+            process.StandardInput.AutoFlush = true;
+            process.Close();
+        }
         /// <summary>
         /// 推送
         /// </summary>
